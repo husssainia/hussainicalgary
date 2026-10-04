@@ -4,112 +4,232 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hussainia Calgary</title>
+  <title>Hussaini Association of Calgary</title>
 
   <style>
+    :root {
+      --green: #087a4b;
+      --dark-green: #045c38;
+      --light-green: #eaf7f0;
+      --white: #ffffff;
+      --text: #173126;
+      --muted: #60736a;
+      --border: #dcebe3;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #0b0d0c;
-      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 7%;
-      border-bottom: 1px solid #252825;
       position: sticky;
       top: 0;
-      background: rgba(11,13,12,0.95);
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      color: var(--dark-green);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 19px;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
     }
 
     nav a {
-      color: #ddd;
+      color: var(--text);
       text-decoration: none;
-      margin-left: 25px;
-      font-size: 15px;
+      font-size: 14px;
+      font-weight: 600;
     }
 
     nav a:hover {
-      color: #c9a45c;
+      color: var(--green);
     }
 
     .hero {
-      min-height: 85vh;
+      min-height: 78vh;
       display: flex;
       align-items: center;
-      padding: 80px 7%;
       background:
-        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
-        radial-gradient(circle at 70% 30%, #3b3323, transparent 45%);
+        radial-gradient(circle at 85% 20%, #d9f2e5 0, transparent 34%),
+        linear-gradient(135deg, #f7fcf9 0%, #ffffff 60%);
+      padding: 90px 24px;
     }
 
-    .hero-content {
-      max-width: 750px;
+    .hero-inner {
+      max-width: 1180px;
+      width: 100%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 70px;
     }
 
-    .tag {
-      color: #c9a45c;
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
       letter-spacing: 3px;
-      font-size: 13px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(45px, 7vw, 82px);
-      line-height: 1;
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -2px;
       margin-bottom: 25px;
     }
 
     .hero p {
-      color: #cfcfcf;
-      font-size: 19px;
-      line-height: 1.7;
       max-width: 650px;
-      margin-bottom: 35px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
     }
 
     .button {
       display: inline-block;
-      background: #c9a45c;
-      color: #111;
-      padding: 15px 25px;
-      border-radius: 4px;
+      padding: 14px 22px;
+      border-radius: 10px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 800;
+      border: 1px solid var(--green);
     }
 
-    .button:hover {
-      background: #e0bf78;
+    .button.primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: var(--dark-green);
+    }
+
+    .button.secondary {
+      color: var(--green);
+      background: white;
+    }
+
+    .button.secondary:hover {
+      background: var(--light-green);
+    }
+
+    .hero-card {
+      background: var(--green);
+      color: white;
+      border-radius: 24px;
+      padding: 38px;
+      box-shadow: 0 20px 50px rgba(4,92,56,.18);
+    }
+
+    .hero-card .big {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .hero-card p {
+      color: #e3f5eb;
+      font-size: 15px;
+      margin: 0;
     }
 
     section {
-      padding: 80px 7%;
+      padding: 90px 24px;
     }
 
-    .section-title {
-      font-size: 38px;
+    .container {
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 45px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.1;
       margin-bottom: 15px;
     }
 
-    .section-text {
-      color: #aaa;
-      max-width: 650px;
-      line-height: 1.7;
-      margin-bottom: 40px;
+    .section-heading p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .info-box {
+      background: var(--light-green);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .info-box h3 {
+      color: var(--dark-green);
+      margin-bottom: 10px;
+    }
+
+    .programs {
+      background: #f7fbf9;
     }
 
     .cards {
@@ -119,45 +239,111 @@
     }
 
     .card {
-      background: #151816;
-      border: 1px solid #282c29;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
       padding: 30px;
-      border-radius: 8px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(10,70,45,.08);
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--light-green);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 20px;
     }
 
     .card h3 {
-      margin-bottom: 12px;
-      color: #c9a45c;
+      margin-bottom: 10px;
+      color: var(--dark-green);
     }
 
     .card p {
-      color: #aaa;
-      line-height: 1.6;
+      color: var(--muted);
+      font-size: 15px;
     }
 
-    .cta {
-      text-align: center;
-      background: #151816;
+    .contact {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact p {
+      color: #d9eee4;
+    }
+
+    .contact .button.secondary {
+      margin-top: 20px;
+      border-color: white;
+    }
+
+    .contact-info {
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .contact-info div {
+      margin-bottom: 18px;
+    }
+
+    .contact-info div:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-info strong {
+      display: block;
+      margin-bottom: 4px;
     }
 
     footer {
-      padding: 30px 7%;
+      background: #033b25;
+      color: #b9d5c8;
       text-align: center;
-      color: #777;
-      border-top: 1px solid #252825;
+      padding: 25px 20px;
+      font-size: 13px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
+
       nav {
         display: none;
+      }
+
+      .hero-inner,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
       .cards {
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        padding: 70px 20px;
+      }
+
       section {
-        padding: 60px 6%;
+        padding: 70px 20px;
       }
     }
   </style>
@@ -166,95 +352,291 @@
 <body>
 
   <header>
-    <div class="logo">HUSSAINIA</div>
+    <div class="nav">
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#programs">Programs</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <a class="brand" href="#">
+        HUSSAINI ASSOCIATION OF CALGARY
+        <span>COMMUNITY • FAITH • SERVICE</span>
+      </a>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
   </header>
+
 
   <main>
 
     <section class="hero">
-      <div class="hero-content">
-        <div class="tag">Calgary • Community • Faith</div>
 
-        <h1>A Place to Gather.<br>A Community to Belong.</h1>
+      <div class="hero-inner">
 
-        <p>
-          Welcome to Hussainia Calgary — a community space
-          dedicated to faith, learning, connection and service.
-        </p>
+        <div>
 
-        <a class="button" href="#programs">Explore Our Community</a>
+          <div class="eyebrow">
+            Calgary Imambargah
+          </div>
+
+          <h1>
+            A community built around faith, learning and service.
+          </h1>
+
+          <p>
+            Hussaini Association of Calgary brings the community together
+            through religious programs, education, cultural enrichment,
+            connection and service.
+          </p>
+
+          <div class="buttons">
+
+            <a class="button primary" href="#programs">
+              Explore Programs
+            </a>
+
+            <a class="button secondary" href="#contact">
+              Contact Us
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="big">
+            1982
+          </div>
+
+          <p>
+            Serving the Shia Muslim community in Calgary for decades,
+            with a focus on faith, education, community engagement
+            and connection.
+          </p>
+
+        </div>
+
       </div>
+
     </section>
+
 
     <section id="about">
-      <div class="tag">Who We Are</div>
 
-      <h2 class="section-title">Built around community.</h2>
+      <div class="container">
 
-      <p class="section-text">
-        Hussainia brings people together through faith, education,
-        community programs and meaningful gatherings.
-      </p>
-    </section>
+        <div class="section-heading">
 
-    <section id="programs">
-      <div class="tag">What's Happening</div>
+          <div class="eyebrow">
+            Who We Are
+          </div>
 
-      <h2 class="section-title">Programs & Gatherings</h2>
+          <h2>
+            More than a place. A community.
+          </h2>
 
-      <div class="cards">
-
-        <div class="card">
-          <h3>Community Events</h3>
           <p>
-            Stay connected with upcoming gatherings,
-            events and community activities.
+            A welcoming space for worship, learning, gathering and
+            meaningful community life.
           </p>
+
         </div>
 
-        <div class="card">
-          <h3>Religious Programs</h3>
-          <p>
-            Information about lectures, gatherings
-            and special religious programs.
-          </p>
-        </div>
 
-        <div class="card">
-          <h3>Community Service</h3>
-          <p>
-            Discover opportunities to participate,
-            volunteer and support the community.
+        <div class="about-grid">
+
+          <p class="about-text">
+            Hussaini Association of Calgary is a registered charitable
+            organization serving the Shia Muslim community in Calgary.
+            The association supports faith, education, cultural
+            enrichment, community engagement and service.
           </p>
+
+
+          <div class="info-box">
+
+            <h3>
+              Our Focus
+            </h3>
+
+            <p>
+              Faith • Education • Culture • Community • Service
+            </p>
+
+          </div>
+
         </div>
 
       </div>
+
     </section>
 
-    <section class="cta" id="contact">
-      <div class="tag">Connect With Us</div>
 
-      <h2 class="section-title">Be part of the community.</h2>
+    <section class="programs" id="programs">
 
-      <p class="section-text" style="margin-left:auto;margin-right:auto;">
-        More information, events and contact details coming soon.
-      </p>
+      <div class="container">
 
-      <a class="button" href="mailto:info@example.com">
-        Contact Hussainia
-      </a>
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            Community Life
+          </div>
+
+          <h2>
+            Programs & Gatherings
+          </h2>
+
+          <p>
+            Discover the different ways the community comes together.
+          </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+          <div class="card">
+
+            <div class="icon">
+              ☪
+            </div>
+
+            <h3>
+              Religious Programs
+            </h3>
+
+            <p>
+              Gatherings, lectures, prayers and special religious
+              programs for the community.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="icon">
+              ✦
+            </div>
+
+            <h3>
+              Community Events
+            </h3>
+
+            <p>
+              Events and gatherings that bring families, youth and
+              community members together.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="icon">
+              ♡
+            </div>
+
+            <h3>
+              Service & Connection
+            </h3>
+
+            <p>
+              Opportunities to participate, volunteer, support and
+              strengthen the community.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="contact" id="contact">
+
+      <div class="container">
+
+        <div class="contact-grid">
+
+
+          <div>
+
+            <div class="eyebrow" style="color:#a7e2c3;">
+              Visit Us
+            </div>
+
+            <h2>
+              Come be part of the community.
+            </h2>
+
+            <p>
+              For current programs, events and additional information,
+              visit the association's official website.
+            </p>
+
+            <a
+              class="button secondary"
+              href="https://hussainicalgary.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Visit Official Website
+            </a>
+
+          </div>
+
+
+          <div class="contact-info">
+
+            <div>
+              <strong>
+                Address
+              </strong>
+
+              4755 34 St SE, Calgary, AB T2B 3B3
+            </div>
+
+
+            <div>
+              <strong>
+                Phone
+              </strong>
+
+              403-235-1212
+            </div>
+
+
+            <div>
+              <strong>
+                Organization
+              </strong>
+
+              Hussaini Association of Calgary
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
     </section>
 
   </main>
 
+
   <footer>
-    © 2026 Hussainia Calgary. All rights reserved.
+    © 2026 Hussaini Association of Calgary
   </footer>
 
 </body>
