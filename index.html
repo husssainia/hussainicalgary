@@ -1,642 +1,2901 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hussaini Association of Calgary</title>
+<title>Hussaini Association of Calgary</title>
 
-  <style>
-    :root {
-      --green: #087a4b;
-      --dark-green: #045c38;
-      --light-green: #eaf7f0;
-      --white: #ffffff;
-      --text: #173126;
-      --muted: #60736a;
-      --border: #dcebe3;
+<meta name="description"
+      content="Hussaini Association of Calgary - Community, Faith, Education and Service">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: #18352b;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --green: #126b45;
+    --dark-green: #084c32;
+    --light-green: #eaf7f0;
+    --mint: #f4fbf7;
+    --gold: #c7a34a;
+    --dark: #102a21;
+    --gray: #66756e;
+    --white: #ffffff;
+    --border: #dce9e2;
+    --shadow: 0 15px 45px rgba(8, 76, 50, 0.10);
+    --radius: 18px;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 55px;
+}
+
+.section-title span {
+    display: inline-block;
+    color: var(--green);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.section-title h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: clamp(34px, 5vw, 48px);
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: var(--gray);
+    font-size: 16px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border-color: white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--green);
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+    background: var(--dark-green);
+    color: white;
+    font-size: 13px;
+}
+
+.topbar-inner {
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.topbar a {
+    opacity: 0.95;
+}
+
+.topbar a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/*
+   Official website logo image.
+
+   If this image ever changes, you can replace the src
+   with your own local logo file, e.g.:
+   src="logo.png"
+*/
+
+.brand-text {
+    line-height: 1.1;
+}
+
+.brand-text strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.brand-text small {
+    color: var(--gray);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #30443b;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    padding: 30px 0;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 22px;
+    width: 0;
+    height: 2px;
+    background: var(--green);
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.menu-btn {
+    display: none;
+    border: 0;
+    background: var(--light-green);
+    color: var(--green);
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,45,30,0.96) 0%,
+            rgba(5,65,42,0.88) 50%,
+            rgba(5,65,42,0.35) 100%
+        ),
+        url("https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 50%;
+    right: -160px;
+    top: -100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    color: white;
+}
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(45px, 7vw, 76px);
+    line-height: 1.05;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #d9c47b;
+}
+
+.hero p {
+    color: rgba(255,255,255,0.88);
+    font-size: 18px;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* =========================================================
+   QUICK INFO
+========================================================= */
+
+.quick-info {
+    margin-top: -50px;
+    position: relative;
+    z-index: 5;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: white;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.quick-item {
+    padding: 28px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    border-right: 1px solid var(--border);
+}
+
+.quick-item:last-child {
+    border-right: 0;
+}
+
+.quick-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--light-green);
+    display: grid;
+    place-items: center;
+    color: var(--green);
+    font-size: 22px;
+}
+
+.quick-item h4 {
+    color: var(--dark);
+    margin-bottom: 3px;
+}
+
+.quick-item p {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    background: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.about-badge {
+    position: absolute;
+    right: -20px;
+    bottom: 30px;
+    background: var(--green);
+    color: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.about-badge strong {
+    font-size: 32px;
+    display: block;
+}
+
+.about-content span {
+    color: var(--green);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.about-content h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: 45px;
+    line-height: 1.15;
+    margin: 12px 0 20px;
+}
+
+.about-content p {
+    color: var(--gray);
+    margin-bottom: 18px;
+}
+
+.check-list {
+    list-style: none;
+    margin: 25px 0;
+}
+
+.check-list li {
+    display: flex;
+    gap: 10px;
+    margin: 11px 0;
+    font-weight: 600;
+    color: #334a40;
+}
+
+.check-list li::before {
+    content: "✓";
+    color: var(--green);
+    font-weight: 900;
+}
+
+/* =========================================================
+   PROGRAMS
+========================================================= */
+
+.programs {
+    background: var(--mint);
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow);
+}
+
+.card-image {
+    height: 190px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.06);
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--light-green);
+    color: var(--green);
+    display: grid;
+    place-items: center;
+    font-size: 21px;
+    margin-bottom: 16px;
+}
+
+.card-body h3 {
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+
+.card-body p {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.card-link {
+    color: var(--green);
+    font-weight: 800;
+    font-size: 13px;
+}
+
+/* =========================================================
+   EVENTS
+========================================================= */
+
+.events {
+    background: white;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.event {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: 0.3s;
+}
+
+.event:hover {
+    border-color: #acd2bf;
+    box-shadow: var(--shadow);
+}
+
+.event-date {
+    width: 70px;
+    height: 75px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--light-green);
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-date strong {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.event-date span {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.event h3 {
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.event p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.event-meta {
+    margin-top: 8px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services {
+    background: var(--mint);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.service {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 28px 22px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 17px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--light-green);
+    color: var(--green);
+    font-size: 25px;
+}
+
+.service h3 {
+    color: var(--dark);
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.service p {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* =========================================================
+   DONATE CTA
+========================================================= */
+
+.donate {
+    padding: 90px 0;
+    background:
+        linear-gradient(
+            110deg,
+            rgba(6,74,48,0.97),
+            rgba(18,107,69,0.90)
+        ),
+        url("https://images.unsplash.com/photo-1575410229391-19b4da01cc94?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
+    color: white;
+}
+
+.donate-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.donate h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(35px, 5vw, 52px);
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.donate p {
+    color: rgba(255,255,255,0.82);
+    max-width: 650px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    background: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 40px;
+}
+
+.contact-info {
+    background: var(--dark-green);
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.contact-info h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.contact-info > p {
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.contact-item-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.10);
+    display: grid;
+    place-items: center;
+}
+
+.contact-item h4 {
+    margin-bottom: 2px;
+}
+
+.contact-item p {
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+}
+
+.contact-form {
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.contact-form h3 {
+    color: var(--dark);
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    color: #344b41;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d5e2db;
+    border-radius: 9px;
+    outline: none;
+    background: #fbfdfc;
+    color: var(--dark);
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(18,107,69,0.08);
+}
+
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #082d20;
+    color: white;
+    padding-top: 65px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    margin: 17px 0;
+    max-width: 370px;
+}
+
+.footer h4 {
+    margin-bottom: 17px;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer li {
+    margin: 10px 0;
+}
+
+.footer li a {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+}
+
+.footer li a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.10);
+    padding: 20px 0;
+    color: rgba(255,255,255,0.55);
+    font-size: 12px;
+}
+
+.footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+.page {
+    display: none;
+    animation: pageIn 0.35s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   INNER PAGE HERO
+========================================================= */
+
+.inner-hero {
+    padding: 85px 0;
+    background:
+        linear-gradient(
+            100deg,
+            rgba(5,60,39,0.97),
+            rgba(18,107,69,0.88)
+        );
+    color: white;
+}
+
+.inner-hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 6vw, 62px);
+    margin-bottom: 10px;
+}
+
+.inner-hero p {
+    color: rgba(255,255,255,0.78);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .nav-links {
+        gap: 15px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--white);
-      color: var(--text);
-      line-height: 1.6;
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .topbar {
+        display: none;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+    .navbar {
+        min-height: 72px;
     }
 
-    .nav {
-      max-width: 1180px;
-      margin: auto;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .logo {
+        width: 48px;
+        height: 48px;
     }
 
-    .brand {
-      color: var(--dark-green);
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 19px;
+    .brand-text strong {
+        font-size: 14px;
     }
 
-    .brand span {
-      display: block;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 2px;
-      margin-top: 2px;
+    .brand-text small {
+        font-size: 9px;
     }
 
-    nav {
-      display: flex;
-      gap: 25px;
+    .menu-btn {
+        display: block;
     }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
+    .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 20px 30px rgba(0,0,0,0.08);
     }
 
-    nav a:hover {
-      color: var(--green);
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid #edf3ef;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px 5%;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .quick-item:last-child {
+        border-bottom: 0;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-image img {
+        height: 380px;
+    }
+
+    .donate-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .section {
+        padding: 65px 0;
     }
 
     .hero {
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(circle at 85% 20%, #d9f2e5 0, transparent 34%),
-        linear-gradient(135deg, #f7fcf9 0%, #ffffff 60%);
-      padding: 90px 24px;
+        min-height: 610px;
     }
 
-    .hero-inner {
-      max-width: 1180px;
-      width: 100%;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      align-items: center;
-      gap: 70px;
-    }
-
-    .eyebrow {
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(44px, 7vw, 78px);
-      line-height: 1.02;
-      letter-spacing: -2px;
-      margin-bottom: 25px;
+    .hero h1 {
+        font-size: 45px;
     }
 
     .hero p {
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 18px;
-      margin-bottom: 32px;
+        font-size: 16px;
     }
 
-    .buttons {
-      display: flex;
-      gap: 13px;
-      flex-wrap: wrap;
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .button {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 800;
-      border: 1px solid var(--green);
+    .hero-buttons .btn {
+        width: 100%;
     }
 
-    .button.primary {
-      background: var(--green);
-      color: white;
-    }
-
-    .button.primary:hover {
-      background: var(--dark-green);
-    }
-
-    .button.secondary {
-      color: var(--green);
-      background: white;
-    }
-
-    .button.secondary:hover {
-      background: var(--light-green);
-    }
-
-    .hero-card {
-      background: var(--green);
-      color: white;
-      border-radius: 24px;
-      padding: 38px;
-      box-shadow: 0 20px 50px rgba(4,92,56,.18);
-    }
-
-    .hero-card .big {
-      font-size: 52px;
-      font-weight: 900;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .hero-card p {
-      color: #e3f5eb;
-      font-size: 15px;
-      margin: 0;
-    }
-
-    section {
-      padding: 90px 24px;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: auto;
-    }
-
-    .section-heading {
-      max-width: 700px;
-      margin-bottom: 45px;
-    }
-
-    h2 {
-      font-size: clamp(32px, 5vw, 50px);
-      line-height: 1.1;
-      margin-bottom: 15px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-    }
-
-    .about-text {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .info-box {
-      background: var(--light-green);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px;
-    }
-
-    .info-box h3 {
-      color: var(--dark-green);
-      margin-bottom: 10px;
-    }
-
-    .programs {
-      background: #f7fbf9;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 30px;
-      transition: .2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(10,70,45,.08);
-    }
-
-    .icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: var(--light-green);
-      color: var(--green);
-      display: grid;
-      place-items: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: var(--dark-green);
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .contact {
-      background: var(--dark-green);
-      color: white;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .contact p {
-      color: #d9eee4;
-    }
-
-    .contact-info {
-      background: rgba(255,255,255,.09);
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 18px;
-      padding: 28px;
-    }
-
-    .contact-info div {
-      margin-bottom: 18px;
-    }
-
-    .contact-info div:last-child {
-      margin-bottom: 0;
-    }
-
-    .contact-info strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    footer {
-      background: #033b25;
-      color: #b9d5c8;
-      text-align: center;
-      padding: 25px 20px;
-      font-size: 13px;
-    }
-
-    @media (max-width: 800px) {
-
-      nav {
-        display: none;
-      }
-
-      .hero-inner,
-      .about-grid,
-      .contact-grid {
+    .program-grid,
+    .service-grid,
+    .footer-grid {
         grid-template-columns: 1fr;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 70px 20px;
-      }
-
-      section {
-        padding: 70px 20px;
-      }
     }
-  </style>
+
+    .about-content h2 {
+        font-size: 36px;
+    }
+
+    .about-badge {
+        right: 10px;
+        bottom: 15px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 27px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom-inner {
+        flex-direction: column;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-  <header>
+<!-- =====================================================
+     TOP BAR
+====================================================== -->
 
-    <div class="nav">
+<div class="topbar">
+    <div class="container topbar-inner">
 
-      <a class="brand" href="#">
-        HUSSAINI ASSOCIATION OF CALGARY
-        <span>COMMUNITY • FAITH • SERVICE</span>
-      </a>
+        <span>
+            Serving the Calgary Muslim Community
+        </span>
 
-      <nav>
-        <a href="#about">About</a>
-        <a href="#programs">Programs</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <a href="tel:4032351212">
+            ☎ 403-235-1212
+        </a>
+
+    </div>
+</div>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="#home" class="brand nav-link" data-page="home">
+
+            <!-- Official website logo -->
+            <img
+                class="logo"
+                src="https://hussainicalgary.com/wp-content/uploads/2023/03/cropped-HAC-Logo-1.png"
+                alt="Hussaini Association of Calgary Logo"
+                onerror="this.style.display='none';"
+            >
+
+            <div class="brand-text">
+                <strong>Hussaini Association</strong>
+                <small>of Calgary</small>
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open menu">
+            ☰
+        </button>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home"
+                   class="nav-link active"
+                   data-page="home">
+                   Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#about"
+                   class="nav-link"
+                   data-page="about">
+                   About
+                </a>
+            </li>
+
+            <li>
+                <a href="#programs"
+                   class="nav-link"
+                   data-page="programs">
+                   Programs
+                </a>
+            </li>
+
+            <li>
+                <a href="#events"
+                   class="nav-link"
+                   data-page="events">
+                   Events
+                </a>
+            </li>
+
+            <li>
+                <a href="#services"
+                   class="nav-link"
+                   data-page="services">
+                   Services
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact"
+                   class="nav-link"
+                   data-page="contact">
+                   Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="#donate"
+                   class="nav-link btn btn-primary"
+                   data-page="donate">
+                   Donate
+                </a>
+            </li>
+
+        </ul>
 
     </div>
 
-  </header>
+</header>
 
 
-  <main>
+<!-- =====================================================
+     HOME PAGE
+====================================================== -->
+
+<main id="home" class="page active">
 
     <section class="hero">
 
-      <div class="hero-inner">
+        <div class="container">
 
-        <div>
+            <div class="hero-content">
 
-          <div class="eyebrow">
-            Calgary Imambargah
-          </div>
+                <div class="hero-label">
+                    ✦ Faith • Community • Service
+                </div>
 
-          <h1>
-            A community built around faith, learning and service.
-          </h1>
+                <h1>
+                    Building a Stronger
+                    <span>Community</span>
+                    Together
+                </h1>
 
-          <p>
-            Hussaini Association of Calgary brings the community together
-            through religious programs, education, cultural enrichment,
-            connection and service.
-          </p>
+                <p>
+                    Welcome to the Hussaini Association of Calgary.
+                    A place for faith, education, community connection,
+                    cultural enrichment and service.
+                </p>
 
-          <div class="buttons">
+                <div class="hero-buttons">
 
-            <a class="button primary" href="#programs">
-              Explore Programs
+                    <a href="#programs"
+                       class="btn btn-primary nav-link"
+                       data-page="programs">
+                        Explore Programs →
+                    </a>
+
+                    <a href="#about"
+                       class="btn btn-outline nav-link"
+                       data-page="about">
+                        Learn About Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK INFO -->
+
+    <section class="quick-info">
+
+        <div class="container">
+
+            <div class="quick-grid">
+
+                <div class="quick-item">
+
+                    <div class="quick-icon">🕌</div>
+
+                    <div>
+                        <h4>Our Community</h4>
+                        <p>
+                            Serving the Calgary Shia Muslim community.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <div class="quick-icon">📚</div>
+
+                    <div>
+                        <h4>Education</h4>
+                        <p>
+                            Religious learning and community education.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <div class="quick-icon">🤝</div>
+
+                    <div>
+                        <h4>Community Service</h4>
+                        <p>
+                            Supporting families and community members.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT PREVIEW -->
+
+    <section class="section about">
+
+        <div class="container about-grid">
+
+            <div class="about-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1000&q=85"
+                    alt="Islamic architecture"
+                >
+
+                <div class="about-badge">
+                    <strong>1982</strong>
+                    <span>Serving Calgary</span>
+                </div>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <span>Who We Are</span>
+
+                <h2>
+                    A Place to Connect,
+                    Learn & Serve
+                </h2>
+
+                <p>
+                    Hussaini Association of Calgary is a charitable
+                    community organization established to serve the
+                    religious, educational and cultural needs of the
+                    Shia Muslim community in Calgary.
+                </p>
+
+                <p>
+                    Our goal is to create opportunities for faith,
+                    learning, fellowship and community engagement
+                    while fostering mutual respect and harmony.
+                </p>
+
+                <ul class="check-list">
+
+                    <li>Religious and educational programs</li>
+                    <li>Community gatherings and events</li>
+                    <li>Family and youth activities</li>
+                    <li>Support for community members</li>
+
+                </ul>
+
+                <a href="#about"
+                   class="btn btn-primary nav-link"
+                   data-page="about">
+                    Read More
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRAMS -->
+
+    <section class="section programs">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>What We Offer</span>
+
+                <h2>
+                    Programs for Every Generation
+                </h2>
+
+                <p>
+                    Creating opportunities for learning,
+                    worship and community connection.
+                </p>
+
+            </div>
+
+
+            <div class="program-grid">
+
+                <article class="card">
+
+                    <div class="card-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=85"
+                            alt="Quran education"
+                        >
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">📖</div>
+
+                        <h3>Quran & Religious Education</h3>
+
+                        <p>
+                            Opportunities to learn Quran,
+                            Islamic teachings and the traditions
+                            of the Ahlul Bayt.
+                        </p>
+
+                        <a href="#programs"
+                           class="card-link nav-link"
+                           data-page="programs">
+                           Learn More →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=900&q=85"
+                            alt="Community gathering"
+                        >
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">🕌</div>
+
+                        <h3>Majalis & Religious Events</h3>
+
+                        <p>
+                            Community gatherings, lectures,
+                            Majalis and programs throughout
+                            the Islamic calendar.
+                        </p>
+
+                        <a href="#events"
+                           class="card-link nav-link"
+                           data-page="events">
+                           View Events →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=900&q=85"
+                            alt="Community support"
+                        >
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">🤲</div>
+
+                        <h3>Community Support</h3>
+
+                        <p>
+                            Helping families, newcomers and
+                            community members connect with
+                            valuable resources.
+                        </p>
+
+                        <a href="#services"
+                           class="card-link nav-link"
+                           data-page="services">
+                           Our Services →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DONATE PREVIEW -->
+
+    <section class="donate">
+
+        <div class="container donate-inner">
+
+            <div>
+
+                <h2>
+                    Help Build Our Community's Future
+                </h2>
+
+                <p>
+                    Your support helps maintain our community
+                    facilities, programs, educational activities
+                    and services.
+                </p>
+
+            </div>
+
+            <a href="#donate"
+               class="btn btn-outline nav-link"
+               data-page="donate">
+                Support Hussainia →
             </a>
 
-            <a class="button secondary" href="#contact">
-              Contact Us
-            </a>
+        </div>
 
-          </div>
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     ABOUT PAGE
+====================================================== -->
+
+<section id="about" class="page">
+
+    <div class="inner-hero">
+
+        <div class="container">
+
+            <h1>About Us</h1>
+
+            <p>
+                Faith, community, education and service.
+            </p>
 
         </div>
 
+    </div>
 
-        <div class="hero-card">
 
-          <div class="big">
-            1982
-          </div>
+    <section class="section">
 
-          <p>
-            Serving the Shia Muslim community in Calgary for decades,
-            with a focus on faith, education, community engagement
-            and connection.
-          </p>
+        <div class="container about-grid">
+
+            <div class="about-content">
+
+                <span>Hussaini Association of Calgary</span>
+
+                <h2>
+                    Serving Calgary Since 1982
+                </h2>
+
+                <p>
+                    Hussaini Association of Calgary was established
+                    to serve the religious, educational and cultural
+                    interests of the Shia Muslim community in Calgary.
+                </p>
+
+                <p>
+                    The Association provides resources, facilities
+                    and opportunities that help community members
+                    practice Islam and learn from the teachings of
+                    Prophet Muhammad and the Ahlul Bayt.
+                </p>
+
+                <p>
+                    We also believe in fellowship, understanding,
+                    mutual respect and harmony with the broader
+                    community.
+                </p>
+
+            </div>
+
+
+            <div class="about-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=85"
+                    alt="Community"
+                >
+
+            </div>
 
         </div>
-
-      </div>
 
     </section>
 
 
-    <section id="about">
+    <section class="section programs">
 
-      <div class="container">
+        <div class="container">
 
-        <div class="section-heading">
+            <div class="section-title">
 
-          <div class="eyebrow">
-            Who We Are
-          </div>
+                <span>Our Mission</span>
 
-          <h2>
-            More than a place. A community.
-          </h2>
+                <h2>
+                    Faith in Action
+                </h2>
 
-          <p>
-            A welcoming space for worship, learning, gathering and
-            meaningful community life.
-          </p>
+                <p>
+                    To serve our community through Islamic faith,
+                    education, culture and community engagement.
+                </p>
 
-        </div>
-
-
-        <div class="about-grid">
-
-          <p class="about-text">
-            Hussaini Association of Calgary is a registered charitable
-            organization serving the Shia Muslim community in Calgary.
-            The association supports faith, education, cultural
-            enrichment, community engagement and service.
-          </p>
-
-
-          <div class="info-box">
-
-            <h3>
-              Our Focus
-            </h3>
-
-            <p>
-              Faith • Education • Culture • Community • Service
-            </p>
-
-          </div>
+            </div>
 
         </div>
-
-      </div>
 
     </section>
 
+</section>
 
-    <section class="programs" id="programs">
 
-      <div class="container">
+<!-- =====================================================
+     PROGRAMS PAGE
+====================================================== -->
 
-        <div class="section-heading">
+<section id="programs" class="page">
 
-          <div class="eyebrow">
-            Community Life
-          </div>
+    <div class="inner-hero">
 
-          <h2>
-            Programs & Gatherings
-          </h2>
+        <div class="container">
 
-          <p>
-            Discover the different ways the community comes together.
-          </p>
+            <h1>Programs</h1>
+
+            <p>
+                Learning, worship and community connection.
+            </p>
 
         </div>
 
+    </div>
 
-        <div class="cards">
 
+    <section class="section programs">
 
-          <div class="card">
+        <div class="container">
 
-            <div class="icon">
-              ☪
+            <div class="section-title">
+
+                <span>Our Programs</span>
+
+                <h2>
+                    Something for Everyone
+                </h2>
+
+                <p>
+                    Explore our religious, educational and
+                    community-focused activities.
+                </p>
+
             </div>
 
-            <h3>
-              Religious Programs
-            </h3>
 
-            <p>
-              Gatherings, lectures, prayers and special religious
-              programs for the community.
-            </p>
+            <div class="program-grid">
 
-          </div>
+                <article class="card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=85"
+                            alt="Quran"
+                        >
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">📖</div>
+
+                        <h3>Quran Classes</h3>
+
+                        <p>
+                            Quran reading, understanding and
+                            religious education for community members.
+                        </p>
+
+                    </div>
+
+                </article>
 
 
-          <div class="card">
+                <article class="card">
 
-            <div class="icon">
-              ✦
+                    <div class="card-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=900&q=85"
+                            alt="Majlis"
+                        >
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">🕌</div>
+
+                        <h3>Majalis</h3>
+
+                        <p>
+                            Religious gatherings and programs
+                            commemorating important occasions.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=900&q=85"
+                            alt="Youth"
+                        >
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">👨‍👩‍👧‍👦</div>
+
+                        <h3>Family & Youth</h3>
+
+                        <p>
+                            Activities designed to strengthen
+                            family and youth participation.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=900&q=85"
+                            alt="Islamic learning"
+                        >
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">🎓</div>
+
+                        <h3>Sunday School</h3>
+
+                        <p>
+                            Islamic education and learning
+                            opportunities for children.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=900&q=85"
+                            alt="Charity"
+                        >
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">🤲</div>
+
+                        <h3>Community Support</h3>
+
+                        <p>
+                            Helping community members and
+                            newcomers where possible.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1575410229391-19b4da01cc94?auto=format&fit=crop&w=900&q=85"
+                            alt="Community hall"
+                        >
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-icon">🏛️</div>
+
+                        <h3>Hall Services</h3>
+
+                        <p>
+                            Hall reservation for eligible
+                            religious and community occasions.
+                        </p>
+
+                    </div>
+
+                </article>
+
             </div>
-
-            <h3>
-              Community Events
-            </h3>
-
-            <p>
-              Events and gatherings that bring families, youth and
-              community members together.
-            </p>
-
-          </div>
-
-
-          <div class="card">
-
-            <div class="icon">
-              ♡
-            </div>
-
-            <h3>
-              Service & Connection
-            </h3>
-
-            <p>
-              Opportunities to participate, volunteer, support and
-              strengthen the community.
-            </p>
-
-          </div>
-
 
         </div>
-
-      </div>
 
     </section>
 
-
-    <section class="contact" id="contact">
-
-      <div class="container">
-
-        <div class="contact-grid">
+</section>
 
 
-          <div>
+<!-- =====================================================
+     EVENTS PAGE
+====================================================== -->
 
-            <div class="eyebrow" style="color:#a7e2c3;">
-              Visit Us
-            </div>
+<section id="events" class="page">
 
-            <h2>
-              Come be part of the community.
-            </h2>
+    <div class="inner-hero">
+
+        <div class="container">
+
+            <h1>Events</h1>
 
             <p>
-              We welcome community members and families to connect,
-              gather and participate.
+                Stay connected with upcoming community activities.
             </p>
 
-          </div>
+        </div>
+
+    </div>
 
 
-          <div class="contact-info">
+    <section class="section events">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Community Calendar</span>
+
+                <h2>
+                    Upcoming Programs & Gatherings
+                </h2>
+
+                <p>
+                    Event information can be updated here whenever
+                    new programs are announced.
+                </p>
+
+            </div>
+
+
+            <div class="events-grid">
+
+                <div class="event">
+
+                    <div class="event-date">
+                        <strong>01</strong>
+                        <span>Event</span>
+                    </div>
+
+                    <div>
+
+                        <h3>Friday Prayer</h3>
+
+                        <p>
+                            Join the community for congregational
+                            prayer and fellowship.
+                        </p>
+
+                        <div class="event-meta">
+                            🕌 Hussaini Association of Calgary
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="event">
+
+                    <div class="event-date">
+                        <strong>02</strong>
+                        <span>Event</span>
+                    </div>
+
+                    <div>
+
+                        <h3>Quran & Religious Learning</h3>
+
+                        <p>
+                            Educational opportunities for children,
+                            youth and adults.
+                        </p>
+
+                        <div class="event-meta">
+                            📚 Community Education
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="event">
+
+                    <div class="event-date">
+                        <strong>03</strong>
+                        <span>Event</span>
+                    </div>
+
+                    <div>
+
+                        <h3>Religious Lectures</h3>
+
+                        <p>
+                            Community lectures and Islamic learning
+                            sessions.
+                        </p>
+
+                        <div class="event-meta">
+                            🎙️ Religious Program
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="event">
+
+                    <div class="event-date">
+                        <strong>04</strong>
+                        <span>Event</span>
+                    </div>
+
+                    <div>
+
+                        <h3>Community Gatherings</h3>
+
+                        <p>
+                            Opportunities for families and community
+                            members to connect.
+                        </p>
+
+                        <div class="event-meta">
+                            🤝 Community
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES PAGE
+====================================================== -->
+
+<section id="services" class="page">
+
+    <div class="inner-hero">
+
+        <div class="container">
+
+            <h1>Services</h1>
+
+            <p>
+                Supporting our community through meaningful services.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <section class="section services">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Community Services</span>
+
+                <h2>
+                    Here for Our Community
+                </h2>
+
+                <p>
+                    A range of religious, educational and
+                    community-focused services.
+                </p>
+
+            </div>
+
+
+            <div class="service-grid">
+
+                <div class="service">
+
+                    <div class="service-icon">🕌</div>
+
+                    <h3>Prayer Services</h3>
+
+                    <p>
+                        Religious gatherings and congregational
+                        prayer opportunities.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">📚</div>
+
+                    <h3>Education</h3>
+
+                    <p>
+                        Quran, Islamic learning and religious
+                        education.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">🤲</div>
+
+                    <h3>Newcomer Support</h3>
+
+                    <p>
+                        Community guidance and connection for
+                        newcomers to Calgary.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">💍</div>
+
+                    <h3>Nikkah Services</h3>
+
+                    <p>
+                        Information and support regarding
+                        religious marriage services.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">🏛️</div>
+
+                    <h3>Hall Booking</h3>
+
+                    <p>
+                        Hall reservation for eligible religious
+                        and auspicious occasions.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">👨‍👩‍👧</div>
+
+                    <h3>Family Programs</h3>
+
+                    <p>
+                        Programs that encourage family
+                        participation.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">🌙</div>
+
+                    <h3>Islamic Occasions</h3>
+
+                    <p>
+                        Programs for important Islamic dates
+                        and occasions.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">❤️</div>
+
+                    <h3>Community Care</h3>
+
+                    <p>
+                        Helping create a connected and supportive
+                        community.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     DONATE PAGE
+====================================================== -->
+
+<section id="donate" class="page">
+
+    <div class="inner-hero">
+
+        <div class="container">
+
+            <h1>Support Hussainia</h1>
+
+            <p>
+                Your contribution helps strengthen our community.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Give Back</span>
+
+                <h2>
+                    Support Our Community
+                </h2>
+
+                <p>
+                    Hussainia relies on community support to maintain
+                    facilities, programs and services.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-info">
+
+                    <h2>
+                        Every Contribution Matters
+                    </h2>
+
+                    <p>
+                        Donations help support the ongoing work
+                        of Hussaini Association of Calgary.
+                    </p>
+
+                    <div class="contact-item">
+
+                        <div class="contact-item-icon">🤲</div>
+
+                        <div>
+                            <h4>Community</h4>
+                            <p>
+                                Support community programs and activities.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-item-icon">📚</div>
+
+                        <div>
+                            <h4>Education</h4>
+                            <p>
+                                Help provide religious and educational
+                                opportunities.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-item-icon">🏛️</div>
+
+                        <div>
+                            <h4>Facilities</h4>
+                            <p>
+                                Help maintain and improve community
+                                facilities.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-form">
+
+                    <h3>
+                        Donation Information
+                    </h3>
+
+                    <p style="color:#66756e; margin-bottom:25px;">
+                        For current donation methods and official
+                        donation instructions, please contact
+                        Hussaini Association of Calgary directly.
+                    </p>
+
+                    <a
+                        href="https://hussainicalgary.com/"
+                        target="_blank"
+                        class="btn btn-primary">
+                        Visit Official Website →
+                    </a>
+
+                    <a
+                        href="tel:4032351212"
+                        class="btn"
+                        style="margin-left:8px; background:#eaf7f0; color:#126b45;">
+                        Call Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT PAGE
+====================================================== -->
+
+<section id="contact" class="page">
+
+    <div class="inner-hero">
+
+        <div class="container">
+
+            <h1>Contact Us</h1>
+
+            <p>
+                We'd love to hear from you.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <section class="section contact">
+
+        <div class="container contact-grid">
+
+            <div class="contact-info">
+
+                <h2>
+                    Get In Touch
+                </h2>
+
+                <p>
+                    Have a question, suggestion or need information
+                    about our programs and services?
+                </p>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-item-icon">📍</div>
+
+                    <div>
+
+                        <h4>Visit Us</h4>
+
+                        <p>
+                            4755 34 St SE<br>
+                            Calgary, AB T2B 3B3<br>
+                            Canada
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-item-icon">☎</div>
+
+                    <div>
+
+                        <h4>Phone</h4>
+
+                        <p>
+                            <a href="tel:4032351212">
+                                403-235-1212
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-item-icon">🌐</div>
+
+                    <div>
+
+                        <h4>Website</h4>
+
+                        <p>
+                            hussainicalgary.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-form">
+
+                <h3>
+                    Send Us a Message
+                </h3>
+
+                <form id="contactForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>Name</label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Email</label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Subject</label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="How can we help?"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Message</label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your message..."
+                            required></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+                        Send Message →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container footer">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <div class="brand">
+
+                    <img
+                        class="logo"
+                        src="https://hussainicalgary.com/wp-content/uploads/2023/03/cropped-HAC-Logo-1.png"
+                        alt="Hussaini Association Logo"
+                        onerror="this.style.display='none';"
+                    >
+
+                    <div class="brand-text">
+
+                        <strong style="color:white;">
+                            Hussaini Association
+                        </strong>
+
+                        <small style="color:rgba(255,255,255,0.6);">
+                            of Calgary
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <p>
+                    Serving the Calgary community through faith,
+                    education, culture and community engagement.
+                </p>
+
+                <a
+                    href="https://hussainicalgary.com/"
+                    target="_blank"
+                    class="btn btn-outline">
+                    Official Website
+                </a>
+
+            </div>
+
 
             <div>
 
-              <strong>
-                Address
-              </strong>
+                <h4>Explore</h4>
 
-              4755 34 St SE, Calgary, AB T2B 3B3
+                <ul>
+
+                    <li>
+                        <a href="#home"
+                           class="nav-link"
+                           data-page="home">
+                           Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#about"
+                           class="nav-link"
+                           data-page="about">
+                           About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#programs"
+                           class="nav-link"
+                           data-page="programs">
+                           Programs
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#events"
+                           class="nav-link"
+                           data-page="events">
+                           Events
+                        </a>
+                    </li>
+
+                </ul>
 
             </div>
 
 
             <div>
 
-              <strong>
-                Phone
-              </strong>
+                <h4>Community</h4>
 
-              403-235-1212
+                <ul>
+
+                    <li>
+                        <a href="#services"
+                           class="nav-link"
+                           data-page="services">
+                           Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#donate"
+                           class="nav-link"
+                           data-page="donate">
+                           Donate
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact"
+                           class="nav-link"
+                           data-page="contact">
+                           Contact
+                        </a>
+                    </li>
+
+                </ul>
 
             </div>
 
 
             <div>
 
-              <strong>
-                Organization
-              </strong>
+                <h4>Contact</h4>
 
-              Hussaini Association of Calgary
+                <ul>
+
+                    <li>
+                        <a href="tel:4032351212">
+                            ☎ 403-235-1212
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://maps.google.com/?q=4755+34+St+SE+Calgary+AB"
+                            target="_blank">
+                            📍 Calgary, Alberta
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://hussainicalgary.com/"
+                            target="_blank">
+                            🌐 Official Website
+                        </a>
+                    </li>
+
+                </ul>
 
             </div>
-
-          </div>
 
 
         </div>
 
-      </div>
 
-    </section>
+        <div class="footer-bottom">
 
-  </main>
+            <div class="footer-bottom-inner">
+
+                <span>
+                    © 2026 Hussaini Association of Calgary.
+                    All rights reserved.
+                </span>
+
+                <span>
+                    Faith • Community • Service
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
 
 
-  <footer>
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
 
-    © 2026 Hussaini Association of Calgary
+<script>
 
-  </footer>
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+const pages = document.querySelectorAll(".page");
+const navLinks = document.querySelectorAll(".nav-link");
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navLinks");
+
+
+function showPage(pageId) {
+
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
+
+
+    const selectedPage = document.getElementById(pageId);
+
+    if (selectedPage) {
+        selectedPage.classList.add("active");
+    }
+
+
+    navLinks.forEach(link => {
+
+        if (link.dataset.page === pageId) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+
+    });
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    navMenu.classList.remove("show");
+
+}
+
+
+/* Navigation click */
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        const pageId = this.dataset.page;
+
+        if (!pageId) return;
+
+        e.preventDefault();
+
+        showPage(pageId);
+
+        history.pushState(
+            null,
+            "",
+            "#" + pageId
+        );
+
+    });
+
+});
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+menuBtn.addEventListener("click", () => {
+
+    navMenu.classList.toggle("show");
+
+});
+
+
+/* =====================================================
+   LOAD PAGE FROM URL HASH
+===================================================== */
+
+function loadFromHash() {
+
+    let hash = window.location.hash.replace("#", "");
+
+    if (!hash) {
+        hash = "home";
+    }
+
+    const validPages = [
+        "home",
+        "about",
+        "programs",
+        "events",
+        "services",
+        "donate",
+        "contact"
+    ];
+
+    if (validPages.includes(hash)) {
+        showPage(hash);
+    } else {
+        showPage("home");
+    }
+
+}
+
+
+window.addEventListener("load", loadFromHash);
+
+
+window.addEventListener("hashchange", () => {
+
+    const hash = window.location.hash.replace("#", "");
+
+    if (hash) {
+        showPage(hash);
+    }
+
+});
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+const contactForm = document.getElementById("contactForm");
+
+
+contactForm.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const subject =
+        document.getElementById("subject").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    if (!name || !email || !subject || !message) {
+
+        alert("Please fill in all fields.");
+
+        return;
+
+    }
+
+
+    /*
+       This demo opens the visitor's email app.
+
+       Later we can connect this form to:
+       - Formspree
+       - EmailJS
+       - Netlify Forms
+       - your own backend
+    */
+
+    const body =
+        "Name: " + name +
+        "\nEmail: " + email +
+        "\n\nMessage:\n" + message;
+
+
+    const mailto =
+        "mailto:info@hussainicalgary.com" +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+
+
+    window.location.href = mailto;
+
+});
+
+
+/* =====================================================
+   ESCAPE KEY CLOSES MOBILE MENU
+===================================================== */
+
+document.addEventListener("keydown", function(e) {
+
+    if (e.key === "Escape") {
+        navMenu.classList.remove("show");
+    }
+
+});
+
+</script>
 
 </body>
 </html>
+   
  
 
         
