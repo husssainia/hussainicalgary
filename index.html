@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hussainia Calgary</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0d0c;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      border-bottom: 1px solid #252825;
+      position: sticky;
+      top: 0;
+      background: rgba(11,13,12,0.95);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #c9a45c;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 7%;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
+        radial-gradient(circle at 70% 30%, #3b3323, transparent 45%);
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .tag {
+      color: #c9a45c;
+      letter-spacing: 3px;
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 7vw, 82px);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      color: #cfcfcf;
+      font-size: 19px;
+      line-height: 1.7;
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #c9a45c;
+      color: #111;
+      padding: 15px 25px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #e0bf78;
+    }
+
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      color: #aaa;
+      max-width: 650px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #151816;
+      border: 1px solid #282c29;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #c9a45c;
+    }
+
+    .card p {
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .cta {
+      text-align: center;
+      background: #151816;
+    }
+
+    footer {
+      padding: 30px 7%;
+      text-align: center;
+      color: #777;
+      border-top: 1px solid #252825;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">HUSSAINIA</div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="tag">Calgary • Community • Faith</div>
+
+        <h1>A Place to Gather.<br>A Community to Belong.</h1>
+
+        <p>
+          Welcome to Hussainia Calgary — a community space
+          dedicated to faith, learning, connection and service.
+        </p>
+
+        <a class="button" href="#programs">Explore Our Community</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="tag">Who We Are</div>
+
+      <h2 class="section-title">Built around community.</h2>
+
+      <p class="section-text">
+        Hussainia brings people together through faith, education,
+        community programs and meaningful gatherings.
+      </p>
+    </section>
+
+    <section id="programs">
+      <div class="tag">What's Happening</div>
+
+      <h2 class="section-title">Programs & Gatherings</h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Community Events</h3>
+          <p>
+            Stay connected with upcoming gatherings,
+            events and community activities.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Religious Programs</h3>
+          <p>
+            Information about lectures, gatherings
+            and special religious programs.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Community Service</h3>
+          <p>
+            Discover opportunities to participate,
+            volunteer and support the community.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="tag">Connect With Us</div>
+
+      <h2 class="section-title">Be part of the community.</h2>
+
+      <p class="section-text" style="margin-left:auto;margin-right:auto;">
+        More information, events and contact details coming soon.
+      </p>
+
+      <a class="button" href="mailto:info@example.com">
+        Contact Hussainia
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Hussainia Calgary. All rights reserved.
+  </footer>
+
+</body>
+</html>
