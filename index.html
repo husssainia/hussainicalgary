@@ -6,10 +6,13 @@
 
 <title>Hussaini Association of Calgary</title>
 
+<meta name="description"
+content="Hussaini Association of Calgary — Calgary's Shia Muslim Community. Faith, community, education and service inspired by the Ahlul Bayt.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,1690 +21,1488 @@
 ========================================================= */
 
 :root{
-  --green:#063f32;
-  --green2:#075644;
-  --green3:#0d6a54;
+    --green:#063f2c;
+    --green-dark:#042f22;
+    --green-soft:#0a533b;
 
-  --gold:#c8a85b;
-  --gold-light:#e4cf8a;
+    --gold:#b99245;
+    --gold-light:#d6b76a;
 
-  --cream:#f4f5ed;
-  --cream2:#e9eee4;
+    --cream:#f8f6ef;
+    --white:#ffffff;
+    --text:#17352a;
+    --muted:#6c7b74;
+    --line:#dfe7e1;
 
-  --white:#ffffff;
-
-  --text:#173b31;
-  --muted:#6c8178;
-
-  --line:#d8e1d8;
-
-  --serif:"Cormorant Garamond",serif;
-  --sans:"Inter",sans-serif;
-  --arabic:"Noto Naskh Arabic",serif;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"DM Sans", Arial, sans-serif;
+    --arabic:"Noto Naskh Arabic", serif;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    max-width:100%;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
 }
 
 body{
-  font-family:var(--sans);
-  background:var(--cream);
-  color:var(--text);
-  overflow-x:hidden;
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+    background:var(--white);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+}
+
+img,
+svg,
+video{
+    max-width:100%;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
 }
 
 button{
-  font-family:inherit;
+    cursor:pointer;
 }
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+span,
+div{
+    overflow-wrap:break-word;
+}
+
+h1,
+h2,
+h3{
+    text-wrap:balance;
+}
+
 
 /* =========================================================
-   LOADER
+   GLOBAL
 ========================================================= */
-
-.loader{
-  position:fixed;
-  inset:0;
-  z-index:99999;
-  background:var(--green);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:opacity .8s ease,visibility .8s ease;
-}
-
-.loader.hide{
-  opacity:0;
-  visibility:hidden;
-}
-
-.loader-inner{
-  text-align:center;
-  color:white;
-}
-
-.loader-arabic{
-  font-family:var(--arabic);
-  font-size:70px;
-  color:var(--gold-light);
-  direction:rtl;
-}
-
-.loader-name{
-  margin-top:12px;
-  font-size:10px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-}
-
-/* =========================================================
-   TOP BAR
-========================================================= */
-
-.topbar{
-  background:var(--green);
-  color:white;
-  padding:10px 0;
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
 
 .container{
-  width:min(1180px,calc(100% - 42px));
-  margin:auto;
+    width:min(1180px, calc(100% - 48px));
+    margin:auto;
 }
 
-.topbar-inner{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
+.gold{
+    color:var(--gold);
 }
 
-.topbar .gold{
-  color:var(--gold-light);
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    color:var(--gold);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.22em;
+    text-transform:uppercase;
 }
+
+.eyebrow::before{
+    content:"";
+    width:34px;
+    height:1px;
+    background:var(--gold);
+}
+
+.section{
+    padding:120px 0;
+}
+
+.section-title{
+    font-family:var(--serif);
+    font-size:clamp(48px,6vw,86px);
+    line-height:.95;
+    font-weight:500;
+    letter-spacing:-.035em;
+}
+
+.section-intro{
+    max-width:590px;
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.85;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    min-height:52px;
+    padding:0 24px;
+
+    border:1px solid transparent;
+    border-radius:0;
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+
+    transition:.3s ease;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:var(--white);
+}
+
+.btn-primary:hover{
+    background:var(--gold-light);
+    transform:translateY(-2px);
+}
+
+.btn-outline{
+    border-color:rgba(255,255,255,.45);
+    color:var(--white);
+}
+
+.btn-outline:hover{
+    background:var(--white);
+    color:var(--green);
+}
+
 
 /* =========================================================
-   NAV
+   NAVBAR
 ========================================================= */
 
 .nav{
-  height:82px;
-  position:sticky;
-  top:0;
-  z-index:5000;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
 
-  background:rgba(244,245,237,.93);
-  backdrop-filter:blur(20px);
+    background:rgba(255,255,255,.92);
+    border-bottom:1px solid rgba(6,63,44,.08);
 
-  border-bottom:1px solid rgba(6,63,50,.1);
+    backdrop-filter:blur(18px);
 }
 
 .nav-inner{
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:13px;
+    display:flex;
+    flex-direction:column;
+    line-height:1;
 }
 
-.brand-symbol{
-  width:43px;
-  height:43px;
-  border:1px solid var(--gold);
-  display:grid;
-  place-items:center;
-  position:relative;
-  overflow:hidden;
+.brand-main{
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:23px;
+    font-weight:700;
+    letter-spacing:.03em;
 }
 
-.brand-symbol:before,
-.brand-symbol:after{
-  content:"";
-  position:absolute;
-  width:27px;
-  height:27px;
-  border:1px solid rgba(200,168,91,.45);
-  transform:rotate(45deg);
-}
-
-.brand-symbol span{
-  position:relative;
-  z-index:2;
-  font-family:var(--arabic);
-  color:var(--gold);
-  font-size:19px;
-  background:var(--cream);
-  padding:0 3px;
-}
-
-.brand-name{
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:2px;
-  color:var(--green);
-}
-
-.brand-name small{
-  display:block;
-  margin-top:5px;
-  font-size:8px;
-  letter-spacing:2px;
-  color:var(--muted);
+.brand-sub{
+    margin-top:5px;
+    color:var(--gold);
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:.22em;
 }
 
 .nav-links{
-  display:flex;
-  align-items:center;
-  gap:28px;
+    display:flex;
+    align-items:center;
+    gap:28px;
 }
 
 .nav-links a{
-  font-size:10px;
-  letter-spacing:1.2px;
-  text-transform:uppercase;
-  font-weight:600;
-  position:relative;
+    position:relative;
+
+    color:var(--green);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
 }
 
-.nav-links a:after{
-  content:"";
-  position:absolute;
-  bottom:-8px;
-  left:0;
-  width:0;
-  height:1px;
-  background:var(--gold);
-  transition:.3s;
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:1px;
+    background:var(--gold);
+
+    transition:.3s ease;
 }
 
-.nav-links a:hover:after{
-  width:100%;
+.nav-links a:hover::after{
+    width:100%;
 }
 
-.nav-join{
-  padding:12px 18px;
-  border:1px solid var(--green);
+.nav-menu{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    border:1px solid var(--line);
+    background:var(--white);
+    color:var(--green);
 }
 
-.nav-join:hover{
-  background:var(--green);
-  color:white;
-}
-
-.menu-btn{
-  display:none;
-  border:0;
-  background:none;
-  color:var(--green);
-  font-size:25px;
-}
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero{
-  min-height:calc(100vh - 124px);
-  background:var(--green);
-  color:white;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
+    position:relative;
+    min-height:100svh;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        radial-gradient(circle at 78% 32%, rgba(185,146,69,.18), transparent 28%),
+        radial-gradient(circle at 15% 80%, rgba(214,183,106,.10), transparent 25%),
+        var(--green);
+
+    color:var(--white);
+    overflow:hidden;
 }
 
-/* geometric atmosphere */
+.hero::before{
+    content:"";
 
-.hero-bg{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
+    position:absolute;
+    inset:0;
+
+    opacity:.13;
+
+    background-image:
+        linear-gradient(30deg, rgba(255,255,255,.18) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.18) 87.5%, rgba(255,255,255,.18)),
+        linear-gradient(150deg, rgba(255,255,255,.18) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.18) 87.5%, rgba(255,255,255,.18)),
+        linear-gradient(30deg, rgba(255,255,255,.18) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.18) 87.5%, rgba(255,255,255,.18)),
+        linear-gradient(150deg, rgba(255,255,255,.18) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.18) 87.5%, rgba(255,255,255,.18));
+
+    background-size:80px 140px;
+    background-position:0 0, 0 0, 40px 70px, 40px 70px;
 }
 
-.hero-glow{
-  position:absolute;
-  width:650px;
-  height:650px;
-  border-radius:50%;
-  right:-150px;
-  top:-180px;
+.hero::after{
+    content:"";
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(228,207,138,.24) 0%,
-      rgba(228,207,138,.09) 35%,
-      transparent 70%
-    );
+    position:absolute;
+    right:-180px;
+    bottom:-240px;
 
-  filter:blur(5px);
+    width:620px;
+    height:620px;
+
+    border:1px solid rgba(214,183,106,.35);
+    border-radius:50%;
+
+    box-shadow:
+        0 0 0 40px rgba(214,183,106,.05),
+        0 0 0 80px rgba(214,183,106,.035);
 }
 
-.hero-ring{
-  position:absolute;
-  width:590px;
-  height:590px;
-  right:-90px;
-  top:-120px;
+.hero-inner{
+    position:relative;
+    z-index:2;
 
-  border:1px solid rgba(228,207,138,.27);
-  border-radius:50%;
-}
+    width:min(1180px, calc(100% - 48px));
+    margin:auto;
 
-.hero-ring.r2{
-  width:450px;
-  height:450px;
-  right:-20px;
-  top:-50px;
-  border-color:rgba(228,207,138,.17);
-}
-
-.hero-ring.r3{
-  width:310px;
-  height:310px;
-  right:50px;
-  top:20px;
-  border-color:rgba(228,207,138,.13);
-}
-
-.geometry{
-  position:absolute;
-  width:470px;
-  height:470px;
-  right:60px;
-  top:20px;
-  transform:rotate(45deg);
-  border:1px solid rgba(228,207,138,.13);
-}
-
-.geometry:before,
-.geometry:after{
-  content:"";
-  position:absolute;
-  inset:55px;
-  border:1px solid rgba(228,207,138,.1);
-}
-
-.geometry:after{
-  inset:110px;
+    padding-top:90px;
 }
 
 .hero-content{
-  position:relative;
-  z-index:5;
-  padding:105px 0 125px;
-  width:100%;
-}
-
-.hero-layout{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  align-items:center;
-  gap:70px;
+    max-width:920px;
 }
 
 .hero-kicker{
-  display:flex;
-  align-items:center;
-  gap:13px;
+    margin-bottom:28px;
 
-  color:var(--gold-light);
-  font-size:10px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font-weight:700;
-
-  margin-bottom:27px;
-}
-
-.hero-kicker:before{
-  content:"";
-  width:43px;
-  height:1px;
-  background:var(--gold-light);
+    color:var(--gold-light);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.25em;
+    text-transform:uppercase;
 }
 
 .hero h1{
-  font-family:var(--serif);
-  font-weight:500;
-  font-size:clamp(70px,8.4vw,125px);
-  line-height:.76;
-  letter-spacing:-4px;
+    max-width:980px;
+
+    font-family:var(--serif);
+    font-size:clamp(60px,9vw,132px);
+    font-weight:500;
+    line-height:.83;
+    letter-spacing:-.055em;
 }
 
-.hero h1 .gold{
-  color:var(--gold-light);
+.hero h1 span{
+    color:var(--gold-light);
+    font-style:italic;
 }
 
 .hero-description{
-  max-width:570px;
-  margin-top:35px;
+    max-width:650px;
+    margin-top:34px;
 
-  font-size:14px;
-  line-height:1.9;
-
-  color:rgba(255,255,255,.7);
+    color:rgba(255,255,255,.78);
+    font-size:18px;
+    line-height:1.8;
 }
 
-.hero-buttons{
-  margin-top:35px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:40px;
 }
 
-.btn{
-  min-height:49px;
-  padding:0 22px;
+.hero-bottom{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:30px;
 
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:9px;
-  letter-spacing:1.8px;
-  text-transform:uppercase;
-  font-weight:700;
-
-  border:1px solid var(--gold);
-  transition:.3s;
+    margin-top:80px;
 }
 
-.btn-gold{
-  background:var(--gold);
-  color:var(--green);
+.hero-location{
+    color:rgba(255,255,255,.7);
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
 }
 
-.btn-gold:hover{
-  background:var(--gold-light);
-  transform:translateY(-2px);
+.hero-arabic{
+    color:rgba(214,183,106,.82);
+    font-family:var(--arabic);
+    font-size:54px;
 }
 
-.btn-outline{
-  color:white;
-  border-color:rgba(255,255,255,.35);
-}
-
-.btn-outline:hover{
-  background:white;
-  color:var(--green);
-}
-
-/* hero visual */
-
-.hero-art{
-  height:470px;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.art-circle{
-  width:355px;
-  height:355px;
-  border-radius:50%;
-  border:1px solid rgba(228,207,138,.45);
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.art-circle:before{
-  content:"";
-  position:absolute;
-  inset:25px;
-  border:1px solid rgba(228,207,138,.23);
-  border-radius:50%;
-}
-
-.art-circle:after{
-  content:"";
-  position:absolute;
-  inset:52px;
-  border:1px solid rgba(228,207,138,.13);
-  border-radius:50%;
-}
-
-.art-arabic{
-  position:relative;
-  z-index:2;
-  font-family:var(--arabic);
-  font-size:88px;
-  color:var(--gold-light);
-  direction:rtl;
-  text-shadow:0 8px 35px rgba(228,207,138,.15);
-}
-
-.orbit{
-  position:absolute;
-  width:430px;
-  height:170px;
-  border:1px solid rgba(228,207,138,.2);
-  border-radius:50%;
-  transform:rotate(-27deg);
-}
-
-.orbit.o2{
-  transform:rotate(27deg);
-}
-
-.orbit-dot{
-  position:absolute;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--gold-light);
-  box-shadow:0 0 20px rgba(228,207,138,.6);
-  top:50%;
-  right:-3px;
-}
-
-.hero-time{
-  position:absolute;
-  right:-10px;
-  bottom:5px;
-
-  width:220px;
-  padding:21px;
-
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(16px);
-
-  border:1px solid rgba(255,255,255,.16);
-}
-
-.hero-time-label{
-  color:var(--gold-light);
-  font-size:8px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.hero-time strong{
-  display:block;
-  margin-top:7px;
-  font-family:var(--serif);
-  font-size:37px;
-  font-weight:500;
-}
-
-.hero-time span{
-  display:block;
-  margin-top:3px;
-  font-size:9px;
-  color:rgba(255,255,255,.55);
-}
 
 /* =========================================================
-   INTRO STRIP
+   INTRO
 ========================================================= */
 
-.intro-strip{
-  background:var(--white);
-  border-bottom:1px solid var(--line);
+.intro{
+    background:var(--cream);
 }
 
 .intro-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+    display:grid;
+    grid-template-columns:.85fr 1.4fr;
+    gap:100px;
+    align-items:start;
 }
 
-.intro-item{
-  padding:33px 28px;
-  border-right:1px solid var(--line);
+.intro-number{
+    color:var(--gold);
+    font-family:var(--serif);
+    font-size:100px;
+    line-height:.7;
 }
 
-.intro-item:first-child{
-  padding-left:0;
+.intro-copy{
+    padding-top:10px;
 }
 
-.intro-item:last-child{
-  border-right:0;
+.intro-copy h2{
+    margin-top:25px;
+    max-width:850px;
+
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:clamp(45px,6vw,78px);
+    line-height:.98;
+    font-weight:500;
 }
 
-.intro-item span{
-  display:block;
-  color:var(--gold);
-  font-size:9px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:9px;
+.intro-copy p{
+    max-width:700px;
+    margin-top:30px;
+
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.9;
 }
 
-.intro-item strong{
-  font-family:var(--serif);
-  font-size:27px;
-  font-weight:500;
-  color:var(--green);
-}
 
 /* =========================================================
-   ABOUT
+   VALUES
 ========================================================= */
 
-.about{
-  padding:125px 0;
-  background:var(--cream);
+.values{
+    background:var(--white);
 }
 
-.about-grid{
-  display:grid;
-  grid-template-columns:.75fr 1.25fr;
-  gap:100px;
+.values-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:40px;
+
+    margin-bottom:70px;
 }
 
-.label{
-  color:var(--gold);
-  font-size:9px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  font-weight:700;
+.values-heading p{
+    max-width:390px;
+    color:var(--muted);
 }
 
-.about h2{
-  margin-top:20px;
-  font-family:var(--serif);
-  font-size:72px;
-  font-weight:500;
-  line-height:.86;
-  color:var(--green);
+.value-list{
+    border-top:1px solid var(--line);
 }
 
-.about-copy{
-  font-size:18px;
-  line-height:1.85;
-  color:var(--muted);
-  max-width:650px;
+.value{
+    display:grid;
+    grid-template-columns:100px 1fr 1fr;
+    gap:35px;
+
+    padding:35px 0;
+
+    border-bottom:1px solid var(--line);
+
+    transition:.3s ease;
 }
 
-.about-copy strong{
-  color:var(--green);
+.value:hover{
+    padding-left:12px;
 }
 
-.about-stats{
-  margin-top:50px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
+.value-num{
+    color:var(--gold);
+    font-family:var(--serif);
+    font-size:34px;
 }
 
-.stat{
-  padding:20px 15px 0 0;
+.value h3{
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:38px;
+    font-weight:500;
+    line-height:1;
 }
 
-.stat strong{
-  display:block;
-  font-family:var(--serif);
-  font-size:46px;
-  color:var(--green);
-  font-weight:500;
+.value p{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.8;
 }
 
-.stat span{
-  display:block;
-  margin-top:4px;
-  font-size:8px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  color:var(--muted);
-}
 
 /* =========================================================
    PRAYER
 ========================================================= */
 
 .prayer{
-  padding:120px 0;
-  background:white;
+    background:var(--green);
+    color:var(--white);
 }
 
-.section-heading{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:40px;
-  margin-bottom:45px;
+.prayer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:50px;
+
+    margin-bottom:65px;
 }
 
-.section-heading h2{
-  font-family:var(--serif);
-  font-size:70px;
-  line-height:.85;
-  font-weight:500;
-  color:var(--green);
-  margin-top:15px;
+.prayer .section-title{
+    color:var(--white);
 }
 
-.section-heading p{
-  max-width:360px;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.8;
+.prayer-intro{
+    max-width:410px;
+    color:rgba(255,255,255,.65);
 }
 
-.prayer-today{
-  border:1px solid var(--line);
-  display:grid;
-  grid-template-columns:1.2fr repeat(5,1fr);
-  margin-top:35px;
+.prayer-date{
+    margin-top:15px;
+    color:var(--gold-light);
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
 }
 
-.prayer-card{
-  padding:24px 18px;
-  border-right:1px solid var(--line);
+.prayer-table{
+    border-top:1px solid rgba(255,255,255,.22);
 }
 
-.prayer-card:last-child{
-  border-right:0;
+.prayer-row{
+    display:grid;
+    grid-template-columns:1.2fr repeat(6,1fr);
+    align-items:center;
+
+    padding:24px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
 }
 
-.prayer-card span{
-  display:block;
-  font-size:8px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  color:var(--muted);
+.prayer-row span{
+    font-size:12px;
+    color:rgba(255,255,255,.58);
 }
 
-.prayer-card strong{
-  display:block;
-  margin-top:10px;
-  font-family:var(--serif);
-  font-size:32px;
-  color:var(--green);
-  font-weight:500;
+.prayer-row strong{
+    color:var(--white);
+    font-size:16px;
+    font-weight:600;
 }
 
-.prayer-card.featured{
-  background:var(--green);
+.prayer-row:first-child{
+    padding:18px 0;
 }
 
-.prayer-card.featured span,
-.prayer-card.featured strong{
-  color:white;
+.prayer-row:first-child span{
+    color:var(--gold-light);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
 }
 
-.prayer-card.featured strong{
-  color:var(--gold-light);
-}
-
-.prayer-actions{
-  margin-top:30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-}
-
-.prayer-actions p{
-  font-size:10px;
-  color:var(--muted);
-}
-
-/* =========================================================
-   PROGRAMS
-========================================================= */
-
-.programs{
-  padding:120px 0;
-  background:var(--cream2);
-}
-
-.program-list{
-  margin-top:55px;
-  border-top:1px solid var(--green);
-}
-
-.program{
-  display:grid;
-  grid-template-columns:75px 1fr 330px 30px;
-  align-items:center;
-  gap:25px;
-
-  padding:30px 0;
-
-  border-bottom:1px solid var(--line);
-  transition:.35s;
-}
-
-.program:hover{
-  padding-left:18px;
-  padding-right:18px;
-  background:white;
-}
-
-.program-number{
-  font-size:9px;
-  letter-spacing:2px;
-  color:var(--gold);
-}
-
-.program h3{
-  font-family:var(--serif);
-  font-size:35px;
-  color:var(--green);
-  font-weight:500;
-}
-
-.program p{
-  font-size:11px;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-.program-arrow{
-  font-size:20px;
-  color:var(--gold);
-}
 
 /* =========================================================
    IMAM ALI
 ========================================================= */
 
 .ali{
-  padding:130px 0;
-  background:var(--green2);
-  color:white;
-  position:relative;
-  overflow:hidden;
-}
+    position:relative;
+    overflow:hidden;
 
-.ali:before{
-  content:"ع";
-  position:absolute;
-  right:-50px;
-  bottom:-150px;
-  font-family:var(--arabic);
-  font-size:620px;
-  line-height:1;
-  color:rgba(228,207,138,.035);
+    background:var(--cream);
 }
 
 .ali-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:90px;
-  align-items:center;
-  position:relative;
-  z-index:2;
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+    gap:90px;
+    align-items:center;
 }
 
 .ali-art{
-  position:relative;
-  min-height:390px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    min-height:600px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    background:var(--green);
+    overflow:hidden;
 }
 
-.ali-circle{
-  width:350px;
-  height:350px;
-  border:1px solid rgba(228,207,138,.35);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
+.ali-art::before{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border:1px solid rgba(214,183,106,.4);
+    border-radius:50%;
+
+    box-shadow:
+        0 0 0 45px rgba(214,183,106,.06),
+        0 0 0 90px rgba(214,183,106,.035);
 }
 
-.ali-circle:before{
-  content:"";
-  position:absolute;
-  inset:35px;
-  border:1px solid rgba(228,207,138,.17);
-  border-radius:50%;
+.ali-art::after{
+    content:"";
+
+    position:absolute;
+    width:100%;
+    height:100%;
+
+    opacity:.1;
+
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 14px,
+            rgba(255,255,255,.3) 15px,
+            transparent 16px
+        );
 }
 
 .ali-arabic{
-  font-family:var(--arabic);
-  font-size:105px;
-  color:var(--gold-light);
-  direction:rtl;
-  position:relative;
-  z-index:2;
+    position:relative;
+    z-index:2;
+
+    color:var(--gold-light);
+    font-family:var(--arabic);
+    font-size:clamp(90px,12vw,180px);
+    line-height:1;
 }
 
 .ali-copy h2{
-  font-family:var(--serif);
-  font-size:80px;
-  font-weight:500;
-  line-height:.8;
-  margin:18px 0 28px;
+    margin-top:22px;
+
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:clamp(48px,6vw,82px);
+    line-height:.95;
+    font-weight:500;
 }
 
 .ali-copy p{
-  max-width:520px;
-  color:rgba(255,255,255,.7);
-  font-size:14px;
-  line-height:1.9;
+    max-width:620px;
+    margin-top:30px;
+
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.9;
 }
 
-.ali-quote{
-  margin-top:35px;
-  padding-left:20px;
-  border-left:1px solid var(--gold);
-  font-family:var(--serif);
-  font-size:24px;
-  line-height:1.35;
-  color:white;
+.quote{
+    margin-top:42px;
+    padding-left:25px;
+
+    border-left:2px solid var(--gold);
+
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:30px;
+    line-height:1.2;
 }
+
 
 /* =========================================================
    SCHOOL
 ========================================================= */
 
 .school{
-  padding:120px 0;
-  background:white;
+    background:var(--white);
 }
 
-.school-layout{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:500px;
-}
-
-.school-art{
-  background:var(--green);
-  color:white;
-  position:relative;
-  overflow:hidden;
-  padding:55px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-
-.school-art:before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  right:-230px;
-  bottom:-230px;
-  border:1px solid rgba(228,207,138,.3);
-  transform:rotate(45deg);
-}
-
-.school-art small{
-  position:relative;
-  z-index:2;
-  color:var(--gold-light);
-  letter-spacing:3px;
-  font-size:8px;
-  text-transform:uppercase;
-}
-
-.school-art h3{
-  position:relative;
-  z-index:2;
-  font-family:var(--serif);
-  font-size:84px;
-  font-weight:500;
-  line-height:.76;
-}
-
-.school-art span{
-  position:relative;
-  z-index:2;
-  font-size:9px;
-  color:rgba(255,255,255,.55);
-  letter-spacing:2px;
-}
-
-.school-copy{
-  padding:55px 0 55px 75px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+.school-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:100px;
+    align-items:center;
 }
 
 .school-copy h2{
-  font-family:var(--serif);
-  font-size:67px;
-  font-weight:500;
-  line-height:.85;
-  color:var(--green);
-  margin-top:17px;
+    margin-top:22px;
+
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:clamp(50px,7vw,90px);
+    line-height:.9;
+    font-weight:500;
 }
 
 .school-copy p{
-  max-width:480px;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.9;
-  margin:30px 0;
+    max-width:650px;
+    margin-top:30px;
+
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.9;
 }
+
+.school-panel{
+    padding:50px;
+
+    background:var(--cream);
+    border-top:4px solid var(--gold);
+}
+
+.school-panel h3{
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:38px;
+    font-weight:500;
+}
+
+.school-panel p{
+    margin-top:18px;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.8;
+}
+
+.school-info{
+    display:grid;
+    gap:14px;
+
+    margin:30px 0;
+}
+
+.school-info div{
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+
+    color:var(--muted);
+    font-size:13px;
+}
+
+.school-info strong{
+    color:var(--green);
+}
+
+
+/* =========================================================
+   PROGRAMS
+========================================================= */
+
+.programs{
+    background:var(--cream);
+}
+
+.program-list{
+    margin-top:70px;
+
+    border-top:1px solid var(--line);
+}
+
+.program{
+    display:grid;
+    grid-template-columns:90px 1.2fr 1fr 40px;
+    gap:30px;
+    align-items:center;
+
+    padding:30px 0;
+
+    border-bottom:1px solid var(--line);
+
+    transition:.3s ease;
+}
+
+.program:hover{
+    padding-left:12px;
+}
+
+.program-number{
+    color:var(--gold);
+    font-family:var(--serif);
+    font-size:30px;
+}
+
+.program h3{
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:35px;
+    font-weight:500;
+}
+
+.program p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.program-arrow{
+    color:var(--gold);
+    font-size:22px;
+}
+
 
 /* =========================================================
    EVENTS
 ========================================================= */
 
 .events{
-  padding:120px 0;
-  background:var(--cream);
+    background:var(--white);
 }
 
-.events-list{
-  margin-top:55px;
-  border-top:1px solid var(--green);
+.events-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:30px;
+}
+
+.event-list{
+    margin-top:65px;
+    border-top:1px solid var(--line);
 }
 
 .event{
-  display:grid;
-  grid-template-columns:100px 1fr 200px 30px;
-  align-items:center;
-  gap:25px;
+    display:grid;
+    grid-template-columns:110px 1fr 180px;
+    gap:40px;
+    align-items:center;
 
-  padding:28px 0;
+    padding:35px 0;
 
-  border-bottom:1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
 
 .event-date{
-  color:var(--gold);
-  font-size:9px;
-  letter-spacing:2px;
-  text-transform:uppercase;
+    color:var(--gold);
+    font-family:var(--serif);
+    font-size:31px;
+    line-height:1;
 }
 
 .event h3{
-  font-family:var(--serif);
-  font-size:31px;
-  color:var(--green);
-  font-weight:500;
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:34px;
+    font-weight:500;
+}
+
+.event p{
+    margin-top:7px;
+    color:var(--muted);
+    font-size:14px;
 }
 
 .event-type{
-  color:var(--muted);
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
+    color:var(--gold);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
 }
+
 
 /* =========================================================
    COMMUNITY CTA
 ========================================================= */
 
 .community{
-  padding:120px 0;
-  background:var(--green);
-  color:white;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+    background:var(--green);
+    color:var(--white);
 }
 
-.community:before{
-  content:"يَا عَلِي";
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  font-family:var(--arabic);
-  font-size:250px;
-  white-space:nowrap;
-  color:rgba(228,207,138,.035);
-}
-
-.community-content{
-  position:relative;
-  z-index:2;
+.community-inner{
+    max-width:1000px;
 }
 
 .community h2{
-  font-family:var(--serif);
-  font-size:82px;
-  line-height:.82;
-  font-weight:500;
-  margin-top:20px;
+    margin-top:25px;
+
+    font-family:var(--serif);
+    font-size:clamp(55px,8vw,110px);
+    font-weight:500;
+    line-height:.88;
+    letter-spacing:-.04em;
+}
+
+.community h2 span{
+    color:var(--gold-light);
+    font-style:italic;
 }
 
 .community p{
-  max-width:560px;
-  margin:28px auto 35px;
-  color:rgba(255,255,255,.68);
-  font-size:14px;
-  line-height:1.8;
+    max-width:600px;
+    margin-top:32px;
+
+    color:rgba(255,255,255,.68);
+    font-size:17px;
+    line-height:1.8;
 }
+
+.community-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:38px;
+}
+
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
 .contact{
-  padding:120px 0;
-  background:var(--cream2);
+    background:var(--cream);
 }
 
 .contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:90px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:100px;
 }
 
 .contact h2{
-  font-family:var(--serif);
-  font-size:72px;
-  font-weight:500;
-  line-height:.82;
-  color:var(--green);
-  margin-top:18px;
+    margin-top:22px;
+
+    color:var(--green);
+    font-family:var(--serif);
+    font-size:clamp(52px,6vw,82px);
+    font-weight:500;
+    line-height:.9;
 }
 
-.contact-intro{
-  margin-top:28px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.8;
-  max-width:500px;
+.contact-text{
+    margin-top:30px;
+    color:var(--muted);
+    line-height:1.8;
 }
 
 .contact-details{
-  margin-top:45px;
-  border-top:1px solid var(--line);
+    margin-top:38px;
 }
 
-.contact-row{
-  display:grid;
-  grid-template-columns:100px 1fr;
-  gap:20px;
-  padding:19px 0;
-  border-bottom:1px solid var(--line);
-  font-size:12px;
+.contact-item{
+    padding:18px 0;
+
+    border-bottom:1px solid var(--line);
 }
 
-.contact-row span{
-  font-size:8px;
-  color:var(--gold);
-  letter-spacing:2px;
-  text-transform:uppercase;
+.contact-label{
+    display:block;
+    margin-bottom:5px;
+
+    color:var(--gold);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
 }
 
-.contact-card{
-  background:white;
-  padding:50px;
-  border-top:3px solid var(--gold);
+.contact-value{
+    color:var(--green);
+    font-size:15px;
 }
 
-.contact-card h3{
-  font-family:var(--serif);
-  font-size:42px;
-  font-weight:500;
-  color:var(--green);
+.contact-note{
+    padding:45px;
+
+    background:var(--green);
+    color:var(--white);
 }
 
-.contact-card p{
-  margin:12px 0 30px;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.8;
+.contact-note .arabic{
+    color:var(--gold-light);
+    font-family:var(--arabic);
+    font-size:55px;
 }
 
-.fake-form{
-  display:grid;
-  gap:12px;
+.contact-note h3{
+    margin-top:20px;
+
+    font-family:var(--serif);
+    font-size:42px;
+    font-weight:500;
+    line-height:1;
 }
 
-.fake-form input,
-.fake-form textarea{
-  width:100%;
-  border:1px solid var(--line);
-  background:var(--cream);
-  padding:15px;
-  outline:none;
-  font-family:var(--sans);
-  font-size:11px;
-  color:var(--green);
+.contact-note p{
+    margin-top:20px;
+    color:rgba(255,255,255,.65);
+    line-height:1.8;
 }
 
-.fake-form textarea{
-  min-height:110px;
-  resize:vertical;
-}
-
-.fake-form button{
-  border:0;
-  background:var(--green);
-  color:white;
-  padding:16px;
-  cursor:pointer;
-  font-size:9px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
-footer{
-  padding:45px 0 25px;
-  background:var(--green);
-  color:white;
+.footer{
+    background:var(--green-dark);
+    color:var(--white);
+    padding:45px 0;
 }
 
-.footer-top{
-  display:flex;
-  justify-content:space-between;
-  gap:40px;
-  padding-bottom:30px;
-  border-bottom:1px solid rgba(255,255,255,.14);
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
 }
 
-.footer-name{
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:2px;
+.footer-brand{
+    font-family:var(--serif);
+    font-size:28px;
 }
 
-.footer-name small{
-  display:block;
-  color:rgba(255,255,255,.45);
-  font-size:8px;
-  margin-top:8px;
-  letter-spacing:1.5px;
+.footer-copy{
+    color:rgba(255,255,255,.5);
+    font-size:11px;
 }
 
 .footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:23px;
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  color:rgba(255,255,255,.65);
+    display:flex;
+    gap:20px;
 }
 
-.footer-bottom{
-  padding-top:20px;
-  display:flex;
-  justify-content:space-between;
-  color:rgba(255,255,255,.4);
-  font-size:8px;
-  letter-spacing:.5px;
+.footer-links a{
+    color:var(--gold-light);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
 }
 
-/* =========================================================
-   MODAL - MONTHLY PRAYER
-========================================================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  background:rgba(6,63,50,.75);
-  backdrop-filter:blur(12px);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  padding:20px;
-
-  opacity:0;
-  visibility:hidden;
-  transition:.35s;
-}
-
-.modal.show{
-  opacity:1;
-  visibility:visible;
-}
-
-.modal-box{
-  width:min(1050px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:white;
-  padding:35px;
-  position:relative;
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin-bottom:30px;
-}
-
-.modal-head h2{
-  font-family:var(--serif);
-  font-size:50px;
-  font-weight:500;
-  color:var(--green);
-}
-
-.close-modal{
-  border:1px solid var(--line);
-  background:var(--cream);
-  width:38px;
-  height:38px;
-  cursor:pointer;
-  color:var(--green);
-  font-size:20px;
-}
-
-.month-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:10px;
-}
-
-.month-table th{
-  background:var(--green);
-  color:white;
-  padding:13px 8px;
-  text-align:center;
-  font-size:8px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-
-.month-table td{
-  padding:11px 7px;
-  border-bottom:1px solid var(--line);
-  text-align:center;
-  color:var(--text);
-}
-
-.month-table tr:hover td{
-  background:var(--cream);
-}
-
-.month-table td:first-child{
-  font-weight:700;
-  color:var(--gold);
-}
 
 /* =========================================================
    REVEAL
 ========================================================= */
 
 .reveal{
-  opacity:0;
-  transform:translateY(25px);
-  transition:opacity .8s ease,transform .8s ease;
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .8s ease, transform .8s ease;
 }
 
 .reveal.visible{
-  opacity:1;
-  transform:none;
+    opacity:1;
+    transform:none;
 }
+
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
-@media(max-width:950px){
+@media(max-width:900px){
 
-  .nav-links{
-    display:none;
-  }
+    .container,
+    .hero-inner{
+        width:min(100% - 36px, 700px);
+    }
 
-  .menu-btn{
-    display:block;
-  }
+    .nav-links{
+        display:none;
+    }
 
-  .hero-layout{
-    grid-template-columns:1fr;
-  }
+    .nav-menu{
+        display:block;
+    }
 
-  .hero-art{
-    display:none;
-  }
+    .nav-links.mobile-open{
+        display:flex;
+        position:absolute;
+        top:78px;
+        left:0;
+        right:0;
 
-  .hero h1{
-    font-size:78px;
-  }
+        flex-direction:column;
+        align-items:flex-start;
 
-  .about-grid,
-  .ali-grid,
-  .school-layout,
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
+        padding:25px 24px;
 
-  .about-grid{
-    gap:45px;
-  }
+        background:var(--white);
+        border-bottom:1px solid var(--line);
+    }
 
-  .school-copy{
-    padding:60px 0;
-  }
+    .hero{
+        min-height:850px;
+    }
 
-  .prayer-today{
-    overflow-x:auto;
-    display:flex;
-  }
+    .hero h1{
+        font-size:clamp(56px,12vw,100px);
+    }
 
-  .prayer-card{
-    min-width:145px;
-  }
+    .hero-bottom{
+        margin-top:55px;
+    }
 
-  .program{
-    grid-template-columns:55px 1fr 30px;
-  }
+    .intro-grid,
+    .ali-grid,
+    .school-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
 
-  .program p{
-    display:none;
-  }
+    .intro-number{
+        font-size:75px;
+    }
 
-  .event{
-    grid-template-columns:80px 1fr 30px;
-  }
+    .ali-art{
+        min-height:450px;
+    }
 
-  .event-type{
-    display:none;
-  }
+    .school-panel{
+        padding:35px;
+    }
 
-  .contact-grid{
-    gap:55px;
-  }
+    .prayer-top,
+    .values-heading,
+    .events-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .prayer-row{
+        grid-template-columns:repeat(3,1fr);
+        gap:14px;
+    }
+
+    .prayer-row:first-child{
+        display:none;
+    }
+
+    .prayer-row span:nth-child(1){
+        grid-column:1 / -1;
+        color:var(--gold-light);
+        font-weight:700;
+    }
+
+    .value{
+        grid-template-columns:70px 1fr;
+    }
+
+    .value p{
+        grid-column:2;
+    }
+
+    .program{
+        grid-template-columns:60px 1fr 30px;
+    }
+
+    .program p{
+        grid-column:2;
+    }
+
+    .event{
+        grid-template-columns:80px 1fr;
+        gap:20px;
+    }
+
+    .event-type{
+        grid-column:2;
+    }
+
 }
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:600px){
 
-  .container{
-    width:calc(100% - 28px);
-  }
+    .container,
+    .hero-inner{
+        width:calc(100% - 30px);
+    }
 
-  .topbar-inner{
-    justify-content:center;
-  }
+    .section{
+        padding:80px 0;
+    }
 
-  .topbar-inner span:last-child{
-    display:none;
-  }
+    .nav-inner{
+        min-height:70px;
+    }
 
-  .nav{
-    height:72px;
-  }
+    .brand-main{
+        font-size:19px;
+    }
 
-  .brand-name{
-    font-size:9px;
-    letter-spacing:1.3px;
-  }
+    .brand-sub{
+        font-size:7px;
+    }
 
-  .brand-name small{
-    font-size:6px;
-  }
+    .hero{
+        min-height:760px;
+    }
 
-  .brand-symbol{
-    width:37px;
-    height:37px;
-  }
+    .hero-inner{
+        padding-top:70px;
+    }
 
-  .hero{
-    min-height:calc(100vh - 124px);
-  }
+    .hero-kicker{
+        font-size:9px;
+        letter-spacing:.16em;
+    }
 
-  .hero-content{
-    padding:85px 0 100px;
-  }
+    .hero h1{
+        max-width:100%;
+        font-size:clamp(52px,15vw,78px);
+        line-height:.88;
+        letter-spacing:-.045em;
+    }
 
-  .hero h1{
-    font-size:60px;
-    letter-spacing:-2px;
-  }
+    .hero-description{
+        font-size:15px;
+        line-height:1.7;
+    }
 
-  .hero-description{
-    font-size:13px;
-  }
+    .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
 
-  .intro-grid{
-    grid-template-columns:1fr;
-  }
+    .btn{
+        width:100%;
+        padding:0 16px;
+    }
 
-  .intro-item{
-    border-right:0;
-    border-bottom:1px solid var(--line);
-  }
+    .hero-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        margin-top:50px;
+    }
 
-  .intro-item:first-child{
-    padding-left:28px;
-  }
+    .hero-arabic{
+        font-size:42px;
+    }
 
-  .intro-item:last-child{
-    border-bottom:0;
-  }
+    .section-title{
+        font-size:clamp(43px,14vw,68px);
+    }
 
-  .about,
-  .prayer,
-  .programs,
-  .ali,
-  .school,
-  .events,
-  .community,
-  .contact{
-    padding:80px 0;
-  }
+    .intro-copy h2,
+    .ali-copy h2,
+    .school-copy h2,
+    .contact h2{
+        font-size:clamp(43px,14vw,68px);
+    }
 
-  .section-heading{
-    display:block;
-  }
+    .intro-copy p,
+    .ali-copy p,
+    .school-copy p,
+    .contact-text{
+        font-size:15px;
+    }
 
-  .section-heading p{
-    margin-top:25px;
-  }
+    .values-heading{
+        margin-bottom:45px;
+    }
 
-  .about h2,
-  .section-heading h2,
-  .contact h2{
-    font-size:54px;
-  }
+    .value{
+        grid-template-columns:45px 1fr;
+        gap:15px;
+        padding:27px 0;
+    }
 
-  .about-stats{
-    grid-template-columns:1fr 1fr 1fr;
-  }
+    .value-num{
+        font-size:25px;
+    }
 
-  .stat strong{
-    font-size:35px;
-  }
+    .value h3{
+        font-size:30px;
+    }
 
-  .program{
-    grid-template-columns:35px 1fr 20px;
-    gap:8px;
-  }
+    .value p{
+        grid-column:2;
+        font-size:14px;
+    }
 
-  .program h3{
-    font-size:26px;
-  }
+    .prayer-row{
+        grid-template-columns:1fr 1fr;
+        padding:20px 0;
+    }
 
-  .ali-art{
-    min-height:280px;
-  }
+    .prayer-row strong{
+        font-size:15px;
+    }
 
-  .ali-circle{
-    width:270px;
-    height:270px;
-  }
+    .prayer-row span{
+        font-size:11px;
+    }
 
-  .ali-arabic{
-    font-size:75px;
-  }
+    .ali-art{
+        min-height:330px;
+    }
 
-  .ali-copy h2{
-    font-size:60px;
-  }
+    .ali-art::before{
+        width:250px;
+        height:250px;
+    }
 
-  .school-art{
-    min-height:360px;
-    padding:35px;
-  }
+    .ali-arabic{
+        font-size:100px;
+    }
 
-  .school-art h3{
-    font-size:65px;
-  }
+    .quote{
+        font-size:25px;
+    }
 
-  .school-copy h2{
-    font-size:55px;
-  }
+    .school-panel{
+        padding:28px 22px;
+    }
 
-  .event{
-    grid-template-columns:60px 1fr 20px;
-    gap:10px;
-  }
+    .school-panel h3{
+        font-size:32px;
+    }
 
-  .event h3{
-    font-size:24px;
-  }
+    .school-info div{
+        flex-direction:column;
+        gap:4px;
+    }
 
-  .community h2{
-    font-size:56px;
-  }
+    .program{
+        grid-template-columns:45px 1fr 20px;
+        gap:12px;
+    }
 
-  .contact-card{
-    padding:30px;
-  }
+    .program-number{
+        font-size:25px;
+    }
 
-  .footer-top,
-  .footer-bottom{
-    flex-direction:column;
-  }
+    .program h3{
+        font-size:29px;
+    }
 
-  .modal-box{
-    padding:20px;
-  }
+    .program p{
+        font-size:13px;
+    }
 
-  .modal-head h2{
-    font-size:40px;
-  }
+    .event{
+        grid-template-columns:65px 1fr;
+        gap:14px;
+        padding:28px 0;
+    }
+
+    .event-date{
+        font-size:26px;
+    }
+
+    .event h3{
+        font-size:29px;
+    }
+
+    .community h2{
+        font-size:clamp(50px,15vw,76px);
+    }
+
+    .community p{
+        font-size:15px;
+    }
+
+    .community-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .contact-note{
+        padding:32px 24px;
+    }
+
+    .contact-note h3{
+        font-size:34px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-links{
+        flex-wrap:wrap;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:49px;
+    }
+
+    .section-title,
+    .intro-copy h2,
+    .ali-copy h2,
+    .school-copy h2,
+    .contact h2{
+        font-size:42px;
+    }
+
+    .program h3,
+    .event h3{
+        font-size:26px;
+    }
+
+    .brand-main{
+        font-size:17px;
+    }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =====================================================
-     LOADER
-===================================================== -->
-
-<div class="loader" id="loader">
-  <div class="loader-inner">
-    <div class="loader-arabic">يَا عَلِي</div>
-    <div class="loader-name">
-      Hussaini Association of Calgary
-    </div>
-  </div>
-</div>
-
 
 <!-- =====================================================
-     TOP BAR
+     NAV
 ===================================================== -->
 
-<div class="topbar">
-  <div class="container topbar-inner">
+<header class="nav">
 
-    <span>
-      <span class="gold">✦</span>
-      Calgary's Shia Muslim Community
-    </span>
+    <div class="nav-inner container">
 
-    <span>
-      4755 34 St SE · Calgary · Alberta
-    </span>
+        <a href="#home" class="brand">
+            <span class="brand-main">HUSSAINI</span>
+            <span class="brand-sub">ASSOCIATION OF CALGARY</span>
+        </a>
 
-  </div>
-</div>
+        <nav class="nav-links" id="navLinks">
 
+            <a href="#about">About</a>
+            <a href="#prayer">Prayer</a>
+            <a href="#imam-ali">Imam Ali</a>
+            <a href="#school">School</a>
+            <a href="#programs">Programs</a>
+            <a href="#contact">Contact</a>
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+        </nav>
 
-<nav class="nav">
-
-  <div class="container nav-inner">
-
-    <a href="#home" class="brand">
-
-      <div class="brand-symbol">
-        <span>ع</span>
-      </div>
-
-      <div class="brand-name">
-        HUSSAINI ASSOCIATION OF CALGARY
-        <small>CALGARY · ALBERTA · CANADA</small>
-      </div>
-
-    </a>
-
-
-    <div class="nav-links">
-
-      <a href="#about">About</a>
-      <a href="#prayer">Prayer</a>
-      <a href="#programs">Programs</a>
-      <a href="#ali">Imam Ali</a>
-      <a href="#school">School</a>
-      <a href="#events">Events</a>
-      <a href="#contact">Contact</a>
-
-      <a href="#contact" class="nav-join">
-        Join Community
-      </a>
+        <button class="nav-menu" id="navMenu" aria-label="Open menu">
+            ☰
+        </button>
 
     </div>
 
+</header>
 
-    <button class="menu-btn" onclick="toggleMenu()">
-      ☰
-    </button>
-
-  </div>
-
-</nav>
-
-
-<!-- MOBILE NAV -->
-
-<div id="mobileNav"
-style="
-display:none;
-position:fixed;
-z-index:4999;
-top:72px;
-left:0;
-right:0;
-background:#f4f5ed;
-border-bottom:1px solid #d8e1d8;
-padding:18px 25px;
-">
-
-  <a href="#about" onclick="closeMenu()" style="display:block;padding:13px 0;">About</a>
-  <a href="#prayer" onclick="closeMenu()" style="display:block;padding:13px 0;">Prayer Times</a>
-  <a href="#programs" onclick="closeMenu()" style="display:block;padding:13px 0;">Programs</a>
-  <a href="#ali" onclick="closeMenu()" style="display:block;padding:13px 0;">Imam Ali</a>
-  <a href="#school" onclick="closeMenu()" style="display:block;padding:13px 0;">Hussaini School</a>
-  <a href="#events" onclick="closeMenu()" style="display:block;padding:13px 0;">Events</a>
-  <a href="#contact" onclick="closeMenu()" style="display:block;padding:13px 0;">Contact</a>
-
-</div>
 
 
 <!-- =====================================================
@@ -1710,1091 +1511,876 @@ padding:18px 25px;
 
 <section class="hero" id="home">
 
-  <div class="hero-bg">
+    <div class="hero-inner">
 
-    <div class="hero-glow"></div>
+        <div class="hero-content">
 
-    <div class="hero-ring"></div>
-    <div class="hero-ring r2"></div>
-    <div class="hero-ring r3"></div>
+            <div class="hero-kicker">
+                Calgary's Shia Muslim Community
+            </div>
 
-    <div class="geometry"></div>
+            <h1>
+                Faith.<br>
+                Community.<br>
+                <span>Service.</span>
+            </h1>
 
-  </div>
+            <p class="hero-description">
+                A place to gather, learn, worship and serve —
+                inspired by the teachings of Prophet Muhammad
+                and the Ahlul Bayt.
+            </p>
 
+            <div class="hero-actions">
 
-  <div class="container hero-content">
+                <a href="#programs" class="btn btn-primary">
+                    Explore Programs
+                </a>
 
-    <div class="hero-layout">
+                <a href="#prayer" class="btn btn-outline">
+                    Prayer Times
+                </a>
 
-
-      <div class="reveal">
-
-        <div class="hero-kicker">
-          Hussaini Association of Calgary
-        </div>
-
-
-        <h1>
-          A home for<br>
-          <span class="gold">faith.</span>
-          Family.<br>
-          Community.
-        </h1>
-
-
-        <p class="hero-description">
-          A place where Calgary's Shia Muslim community comes together
-          for worship, learning, remembrance, service and fellowship —
-          grounded in the teachings of the Ahlul Bayt.
-        </p>
-
-
-        <div class="hero-buttons">
-
-          <a href="#prayer" class="btn btn-gold">
-            Today's Prayer Times
-          </a>
-
-          <a href="#programs" class="btn btn-outline">
-            Discover HAC
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-art reveal">
-
-        <div class="art-circle">
-
-          <div class="orbit">
-            <div class="orbit-dot"></div>
-          </div>
-
-          <div class="orbit o2">
-            <div class="orbit-dot"></div>
-          </div>
-
-          <div class="art-arabic">
-            يَا عَلِي
-          </div>
+            </div>
 
         </div>
 
 
-        <div class="hero-time">
+        <div class="hero-bottom">
 
-          <div class="hero-time-label">
-            Calgary · Today
-          </div>
+            <div class="hero-location">
+                Hussaini Association of Calgary · Alberta, Canada
+            </div>
 
-          <strong>
-            19:26
-          </strong>
-
-          <span>
-            Maghribain · October 04
-          </span>
+            <div class="hero-arabic">
+                يَا عَلِي
+            </div>
 
         </div>
-
-      </div>
 
     </div>
-
-  </div>
 
 </section>
 
-
-<!-- =====================================================
-     INTRO STRIP
-===================================================== -->
-
-<section class="intro-strip">
-
-  <div class="container intro-grid">
-
-    <div class="intro-item reveal">
-      <span>Established</span>
-      <strong>Since 1982</strong>
-    </div>
-
-    <div class="intro-item reveal">
-      <span>Community</span>
-      <strong>Shia Ithna Ashari</strong>
-    </div>
-
-    <div class="intro-item reveal">
-      <span>Location</span>
-      <strong>Calgary, Alberta</strong>
-    </div>
-
-  </div>
-
-</section>
 
 
 <!-- =====================================================
      ABOUT
 ===================================================== -->
 
-<section class="about" id="about">
+<section class="section intro reveal" id="about">
 
-  <div class="container about-grid">
+    <div class="container intro-grid">
 
-    <div class="reveal">
+        <div>
 
-      <div class="label">
-        Who We Are
-      </div>
+            <div class="intro-number">
+                01
+            </div>
 
-      <h2>
-        A community<br>
-        with purpose.
-      </h2>
+            <div class="eyebrow">
+                Who We Are
+            </div>
+
+        </div>
+
+
+        <div class="intro-copy">
+
+            <h2>
+                A community built around faith, family and service.
+            </h2>
+
+            <p>
+                Hussaini Association of Calgary is a Shia Ithna Ashari
+                Muslim community organization serving Calgary since 1982.
+                Our mission is to provide a welcoming environment where
+                families and individuals can practice Islam, learn,
+                connect and contribute to the wider community.
+            </p>
+
+        </div>
 
     </div>
-
-
-    <div class="reveal">
-
-      <p class="about-copy">
-
-        The <strong>Hussaini Association of Calgary</strong> was
-        established in 1982 to serve Calgary's Shia Muslim community.
-
-        Our community is dedicated to preserving faith and cultural
-        values while creating opportunities for worship, education,
-        fellowship and service.
-
-      </p>
-
-
-      <div class="about-stats">
-
-        <div class="stat">
-          <strong>1982</strong>
-          <span>Established</span>
-        </div>
-
-        <div class="stat">
-          <strong>YYC</strong>
-          <span>Calgary</span>
-        </div>
-
-        <div class="stat">
-          <strong>40+</strong>
-          <span>Years of Community</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     VALUES
+===================================================== -->
+
+<section class="section values reveal">
+
+    <div class="container">
+
+        <div class="values-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    Our Foundation
+                </div>
+
+                <h2 class="section-title">
+                    What brings<br>
+                    us together.
+                </h2>
+
+            </div>
+
+            <p>
+                Inspired by the Qur'an, the Prophet Muhammad
+                and the teachings of the Ahlul Bayt.
+            </p>
+
+        </div>
+
+
+        <div class="value-list">
+
+            <div class="value">
+
+                <div class="value-num">01</div>
+
+                <h3>Faith</h3>
+
+                <p>
+                    Creating opportunities for worship,
+                    learning and spiritual growth.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-num">02</div>
+
+                <h3>Community</h3>
+
+                <p>
+                    Building strong relationships across
+                    generations and families.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-num">03</div>
+
+                <h3>Service</h3>
+
+                <p>
+                    Supporting people and contributing
+                    positively to the wider Canadian community.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 
 <!-- =====================================================
      PRAYER
 ===================================================== -->
 
-<section class="prayer" id="prayer">
+<section class="section prayer reveal" id="prayer">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="section-heading reveal">
+        <div class="prayer-top">
 
-      <div>
+            <div>
 
-        <div class="label">
-          Calgary · October 2026
+                <div class="eyebrow">
+                    Calgary · October 2026
+                </div>
+
+                <h2 class="section-title">
+                    Prayer Times
+                </h2>
+
+                <div class="prayer-date">
+                    Rabi'al Thani 1448
+                </div>
+
+            </div>
+
+            <p class="prayer-intro">
+                Daily Calgary salaat timings presented
+                directly within the community experience.
+            </p>
+
         </div>
 
-        <h2>
-          Prayer Times
-        </h2>
 
-      </div>
+        <div class="prayer-table">
 
-      <p>
-        Today's timings are based on the Hussaini Association
-        Calgary timetable. Times are a general guideline.
-      </p>
+            <div class="prayer-row">
+
+                <span>Day</span>
+                <span>Imsak</span>
+                <span>Fajr</span>
+                <span>Sunrise</span>
+                <span>Zuhrain</span>
+                <span>Sunset</span>
+                <span>Maghribain</span>
+
+            </div>
+
+
+            <div class="prayer-row">
+
+                <span>01 Oct</span>
+                <strong>05:48</strong>
+                <strong>06:03</strong>
+                <strong>07:37</strong>
+                <strong>13:26</strong>
+                <strong>19:14</strong>
+                <strong>19:33</strong>
+
+            </div>
+
+
+            <div class="prayer-row">
+
+                <span>02 Oct</span>
+                <strong>05:50</strong>
+                <strong>06:05</strong>
+                <strong>07:39</strong>
+                <strong>13:26</strong>
+                <strong>19:11</strong>
+                <strong>19:31</strong>
+
+            </div>
+
+
+            <div class="prayer-row">
+
+                <span>03 Oct</span>
+                <strong>05:51</strong>
+                <strong>06:06</strong>
+                <strong>07:40</strong>
+                <strong>13:25</strong>
+                <strong>19:09</strong>
+                <strong>19:29</strong>
+
+            </div>
+
+
+            <div class="prayer-row">
+
+                <span>04 Oct</span>
+                <strong>05:53</strong>
+                <strong>06:08</strong>
+                <strong>07:42</strong>
+                <strong>13:25</strong>
+                <strong>19:07</strong>
+                <strong>19:26</strong>
+
+            </div>
+
+
+            <div class="prayer-row">
+
+                <span>05 Oct</span>
+                <strong>05:54</strong>
+                <strong>06:09</strong>
+                <strong>07:44</strong>
+                <strong>13:25</strong>
+                <strong>19:05</strong>
+                <strong>19:24</strong>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="prayer-today reveal">
-
-      <div class="prayer-card">
-        <span>Imsak</span>
-        <strong>05:53</strong>
-      </div>
-
-      <div class="prayer-card">
-        <span>Fajr</span>
-        <strong>06:08</strong>
-      </div>
-
-      <div class="prayer-card">
-        <span>Sunrise</span>
-        <strong>07:42</strong>
-      </div>
-
-      <div class="prayer-card">
-        <span>Zuhrain</span>
-        <strong>13:25</strong>
-      </div>
-
-      <div class="prayer-card">
-        <span>Sunset</span>
-        <strong>19:07</strong>
-      </div>
-
-      <div class="prayer-card featured">
-        <span>Maghribain</span>
-        <strong>19:26</strong>
-      </div>
-
-    </div>
-
-
-    <div class="prayer-actions">
-
-      <p>
-        October 04, 2026 · Calgary, Alberta
-      </p>
-
-      <button class="btn btn-gold" onclick="openPrayerModal()">
-        View October Timetable
-      </button>
-
-    </div>
-
-  </div>
 
 </section>
 
-
-<!-- =====================================================
-     PROGRAMS
-===================================================== -->
-
-<section class="programs" id="programs">
-
-  <div class="container">
-
-    <div class="section-heading reveal">
-
-      <div>
-
-        <div class="label">
-          Community Life
-        </div>
-
-        <h2>
-          What brings<br>
-          us together.
-        </h2>
-
-      </div>
-
-      <p>
-        A community grows when people gather, learn,
-        worship and serve together.
-      </p>
-
-    </div>
-
-
-    <div class="program-list">
-
-      <div class="program reveal">
-
-        <div class="program-number">01</div>
-
-        <h3>
-          Majalis & Religious Programs
-        </h3>
-
-        <p>
-          Gatherings for remembrance, spirituality
-          and religious learning.
-        </p>
-
-        <div class="program-arrow">↗</div>
-
-      </div>
-
-
-      <div class="program reveal">
-
-        <div class="program-number">02</div>
-
-        <h3>
-          Education & Learning
-        </h3>
-
-        <p>
-          Building knowledge and understanding
-          across generations.
-        </p>
-
-        <div class="program-arrow">↗</div>
-
-      </div>
-
-
-      <div class="program reveal">
-
-        <div class="program-number">03</div>
-
-        <h3>
-          Family & Youth
-        </h3>
-
-        <p>
-          Creating meaningful connections
-          for families and young people.
-        </p>
-
-        <div class="program-arrow">↗</div>
-
-      </div>
-
-
-      <div class="program reveal">
-
-        <div class="program-number">04</div>
-
-        <h3>
-          Service & Outreach
-        </h3>
-
-        <p>
-          Serving people and building harmony
-          within our wider community.
-        </p>
-
-        <div class="program-arrow">↗</div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
 
 
 <!-- =====================================================
      IMAM ALI
 ===================================================== -->
 
-<section class="ali" id="ali">
+<section class="section ali reveal" id="imam-ali">
 
-  <div class="container ali-grid">
+    <div class="container ali-grid">
 
+        <div class="ali-art">
 
-    <div class="ali-art reveal">
+            <div class="ali-arabic">
+                يَا عَلِي
+            </div>
 
-      <div class="ali-circle">
-
-        <div class="ali-arabic">
-          يَا عَلِي
         </div>
 
-      </div>
+
+        <div class="ali-copy">
+
+            <div class="eyebrow">
+                Imam Ali (ع)
+            </div>
+
+            <h2>
+                Knowledge.<br>
+                Justice.<br>
+                Courage.
+            </h2>
+
+            <p>
+                Imam Ali (ع) remains an enduring example of
+                knowledge, justice, courage, compassion and
+                devotion. His teachings continue to inspire
+                generations of Muslims around the world.
+            </p>
+
+            <div class="quote">
+                “There are many educated people who have
+                ruined their future on account of their
+                ignorance of religion.”
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="ali-copy reveal">
-
-      <div class="label">
-        A Legacy of Justice
-      </div>
-
-      <h2>
-        Imam Ali (ع)
-      </h2>
-
-      <p>
-        The teachings and example of Imam Ali (ع) continue to inspire
-        our community through justice, knowledge, courage, compassion
-        and service to humanity.
-      </p>
-
-      <div class="ali-quote">
-        “Death with dignity is better than a life of humiliation.”
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
+
 
 
 <!-- =====================================================
      SCHOOL
 ===================================================== -->
 
-<section class="school" id="school">
+<section class="section school reveal" id="school">
 
-  <div class="container school-layout">
+    <div class="container school-grid">
+
+        <div class="school-copy">
+
+            <div class="eyebrow">
+                Education
+            </div>
+
+            <h2>
+                Hussaini<br>
+                School
+            </h2>
+
+            <p>
+                A Sunday learning environment helping children
+                build a strong foundation in Qur'an, Fiqh,
+                Aqaid, Akhlaq and Islamic history.
+            </p>
+
+            <br>
+
+            <a
+                href="https://school.hussainicalgary.com/"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+            >
+                Visit Hussaini School
+            </a>
+
+        </div>
 
 
-    <div class="school-art reveal">
+        <div class="school-panel">
 
-      <small>
-        Education · Faith · Future
-      </small>
+            <h3>
+                Learn. Grow. Serve.
+            </h3>
 
-      <h3>
-        HUSSAINI<br>
-        SCHOOL
-      </h3>
+            <p>
+                Education is an important part of building
+                confident young Muslims connected to their
+                faith and community.
+            </p>
 
-      <span>
-        Helping the next generation learn & grow
-      </span>
+
+            <div class="school-info">
+
+                <div>
+                    <span>Day</span>
+                    <strong>Sunday</strong>
+                </div>
+
+                <div>
+                    <span>Hours</span>
+                    <strong>10 AM – 2 PM</strong>
+                </div>
+
+                <div>
+                    <span>Location</span>
+                    <strong>Calgary</strong>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="school-copy reveal">
-
-      <div class="label">
-        Hussaini School
-      </div>
-
-      <h2>
-        Learning with<br>
-        purpose.
-      </h2>
-
-      <p>
-        Hussaini School provides religious education for children,
-        including Quran, Fiqh, Aqaid, Akhlaq and Islamic History,
-        with an emphasis on building strong values and character.
-      </p>
-
-      <div>
-
-        <a href="#school-info" class="btn btn-gold">
-          Explore School
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- SCHOOL INFO -->
-<section id="school-info"
-style="
-background:var(--green);
-color:white;
-padding:70px 0;
-">
 
-  <div class="container">
+<!-- =====================================================
+     PROGRAMS
+===================================================== -->
 
-    <div style="
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:30px;
-    ">
+<section class="section programs reveal" id="programs">
 
-      <div>
-        <div class="label">Subjects</div>
-        <h3 style="
-          font-family:var(--serif);
-          font-size:35px;
-          margin-top:10px;
-          color:white;
-        ">
-          Quran · Fiqh
-        </h3>
-      </div>
+    <div class="container">
 
-      <div>
-        <div class="label">Learning</div>
-        <h3 style="
-          font-family:var(--serif);
-          font-size:35px;
-          margin-top:10px;
-          color:white;
-        ">
-          Aqaid · Akhlaq
-        </h3>
-      </div>
+        <div class="eyebrow">
+            Community Life
+        </div>
 
-      <div>
-        <div class="label">History</div>
-        <h3 style="
-          font-family:var(--serif);
-          font-size:35px;
-          margin-top:10px;
-          color:white;
-        ">
-          Islamic History
-        </h3>
-      </div>
+        <h2 class="section-title">
+            Programs &<br>
+            gatherings.
+        </h2>
+
+
+        <div class="program-list">
+
+            <div class="program">
+
+                <div class="program-number">01</div>
+
+                <h3>Shab-e-Jumma</h3>
+
+                <p>
+                    Weekly spiritual gathering,
+                    dua and community connection.
+                </p>
+
+                <div class="program-arrow">↗</div>
+
+            </div>
+
+
+            <div class="program">
+
+                <div class="program-number">02</div>
+
+                <h3>Salat-ul-Jumma</h3>
+
+                <p>
+                    Friday congregational prayer
+                    and community gathering.
+                </p>
+
+                <div class="program-arrow">↗</div>
+
+            </div>
+
+
+            <div class="program">
+
+                <div class="program-number">03</div>
+
+                <h3>Majalis</h3>
+
+                <p>
+                    Gatherings focused on remembrance,
+                    learning and the message of Karbala.
+                </p>
+
+                <div class="program-arrow">↗</div>
+
+            </div>
+
+
+            <div class="program">
+
+                <div class="program-number">04</div>
+
+                <h3>Community Events</h3>
+
+                <p>
+                    Family programs, educational gatherings
+                    and community initiatives.
+                </p>
+
+                <div class="program-arrow">↗</div>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
-
 </section>
+
 
 
 <!-- =====================================================
      EVENTS
 ===================================================== -->
 
-<section class="events" id="events">
+<section class="section events reveal" id="events">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="section-heading reveal">
+        <div class="events-header">
 
-      <div>
+            <div>
 
-        <div class="label">
-          Community Calendar
+                <div class="eyebrow">
+                    Calendar
+                </div>
+
+                <h2 class="section-title">
+                    Coming together.
+                </h2>
+
+            </div>
+
+            <p class="section-intro">
+                Islamic occasions and community gatherings
+                create opportunities for worship, remembrance
+                and connection.
+            </p>
+
         </div>
 
-        <h2>
-          Important moments.
-        </h2>
 
-      </div>
+        <div class="event-list">
 
-      <p>
-        Islamic occasions and community moments
-        that bring us together.
-      </p>
+            <div class="event">
+
+                <div class="event-date">
+                    01
+                </div>
+
+                <div>
+                    <h3>Weekly Community Programs</h3>
+                    <p>
+                        Regular religious and community gatherings.
+                    </p>
+                </div>
+
+                <div class="event-type">
+                    Community
+                </div>
+
+            </div>
+
+
+            <div class="event">
+
+                <div class="event-date">
+                    02
+                </div>
+
+                <div>
+                    <h3>Islamic Events</h3>
+                    <p>
+                        Celebrations and commemorations
+                        throughout the Islamic calendar.
+                    </p>
+                </div>
+
+                <div class="event-type">
+                    Islamic Calendar
+                </div>
+
+            </div>
+
+
+            <div class="event">
+
+                <div class="event-date">
+                    03
+                </div>
+
+                <div>
+                    <h3>Annual Imam Hussain Juloos</h3>
+                    <p>
+                        A community peace walk in remembrance
+                        of Imam Hussain (ع).
+                    </p>
+                </div>
+
+                <div class="event-type">
+                    Annual
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="events-list">
-
-      <div class="event reveal">
-
-        <div class="event-date">
-          17 Oct
-        </div>
-
-        <h3>
-          Wiladat of Bibi Zainab binte Ali (SA)
-        </h3>
-
-        <div class="event-type">
-          Islamic Occasion
-        </div>
-
-        <div class="program-arrow">
-          ✦
-        </div>
-
-      </div>
-
-
-      <div class="event reveal">
-
-        <div class="event-date">
-          25 Oct
-        </div>
-
-        <h3>
-          Martyrdom of Bibi Sayedda Fatima Zehra (SA)
-        </h3>
-
-        <div class="event-type">
-          Islamic Occasion
-        </div>
-
-        <div class="program-arrow">
-          ✦
-        </div>
-
-      </div>
-
-
-      <div class="event reveal">
-
-        <div class="event-date">
-          Weekly
-        </div>
-
-        <h3>
-          Community Religious Programs
-        </h3>
-
-        <div class="event-type">
-          Community
-        </div>
-
-        <div class="program-arrow">
-          ✦
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
+
 
 
 <!-- =====================================================
      COMMUNITY CTA
 ===================================================== -->
 
-<section class="community">
+<section class="section community reveal">
 
-  <div class="container community-content reveal">
+    <div class="container community-inner">
 
-    <div class="label">
-      Hussaini Association of Calgary
+        <div class="eyebrow">
+            Be Part Of It
+        </div>
+
+        <h2>
+            A community is<br>
+            stronger <span>together.</span>
+        </h2>
+
+        <p>
+            Whether you are new to Calgary, looking for
+            a place to learn, or simply looking to connect,
+            there is a place for you in our community.
+        </p>
+
+        <div class="community-actions">
+
+            <a href="#contact" class="btn btn-primary">
+                Connect With Us
+            </a>
+
+            <a href="#programs" class="btn btn-outline">
+                Explore Programs
+            </a>
+
+        </div>
+
     </div>
 
-    <h2>
-      Together in faith.<br>
-      Together in community.
-    </h2>
-
-    <p>
-      A welcoming home for Calgary's Shia Muslim community,
-      built around faith, family, learning and service.
-    </p>
-
-    <a href="#contact" class="btn btn-gold">
-      Become Part of the Community
-    </a>
-
-  </div>
-
 </section>
+
 
 
 <!-- =====================================================
      CONTACT
 ===================================================== -->
 
-<section class="contact" id="contact">
+<section class="section contact reveal" id="contact">
 
-  <div class="container contact-grid">
+    <div class="container contact-grid">
+
+        <div>
+
+            <div class="eyebrow">
+                Contact
+            </div>
+
+            <h2>
+                Come visit<br>
+                our community.
+            </h2>
+
+            <p class="contact-text">
+                We welcome families, individuals and newcomers
+                looking to connect with the Calgary Shia Muslim
+                community.
+            </p>
 
 
-    <div class="reveal">
+            <div class="contact-details">
 
-      <div class="label">
-        Visit & Connect
-      </div>
+                <div class="contact-item">
 
-      <h2>
-        Come by.<br>
-        Say Salaam.
-      </h2>
+                    <span class="contact-label">
+                        Address
+                    </span>
 
-      <p class="contact-intro">
-        Whether you are new to Calgary or have been part of
-        the community for years, there is a place for you here.
-      </p>
+                    <div class="contact-value">
+                        4755 34 St SE,<br>
+                        Calgary, AB T2B 3B3
+                    </div>
+
+                </div>
 
 
-      <div class="contact-details">
+                <div class="contact-item">
 
-        <div class="contact-row">
+                    <span class="contact-label">
+                        Phone
+                    </span>
 
-          <span>Address</span>
+                    <div class="contact-value">
+                        403-235-1212
+                    </div>
 
-          <div>
-            4755 34 St SE<br>
-            Calgary, AB T2B 3B3
-          </div>
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span class="contact-label">
+                        Community
+                    </span>
+
+                    <div class="contact-value">
+                        Hussaini Association of Calgary
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="contact-row">
+        <div class="contact-note">
 
-          <span>Phone</span>
+            <div class="arabic">
+                الحمد لله
+            </div>
 
-          <div>
-            403-235-1212
-          </div>
+            <h3>
+                Serving Calgary's
+                Shia Muslim community
+                since 1982.
+            </h3>
 
-        </div>
-
-
-        <div class="contact-row">
-
-          <span>Community</span>
-
-          <div>
-            Calgary · Alberta · Canada
-          </div>
+            <p>
+                Rooted in faith. Connected through community.
+                Inspired by the teachings of the Ahlul Bayt.
+            </p>
 
         </div>
-
-      </div>
 
     </div>
-
-
-    <div class="contact-card reveal">
-
-      <h3>
-        Send a message.
-      </h3>
-
-      <p>
-        Have a question, suggestion or community inquiry?
-        Send us a message using the form below.
-      </p>
-
-
-      <form class="fake-form" onsubmit="sendMessage(event)">
-
-        <input
-          type="text"
-          placeholder="Your Name"
-          required
-        >
-
-        <input
-          type="email"
-          placeholder="Your Email"
-          required
-        >
-
-        <input
-          type="text"
-          placeholder="Subject"
-          required
-        >
-
-        <textarea
-          placeholder="Your Message"
-          required
-        ></textarea>
-
-        <button type="submit">
-          Send Message
-        </button>
-
-      </form>
-
-    </div>
-
-  </div>
 
 </section>
+
 
 
 <!-- =====================================================
      FOOTER
 ===================================================== -->
 
-<footer>
+<footer class="footer">
 
-  <div class="container">
+    <div class="container footer-inner">
 
-    <div class="footer-top">
+        <div>
 
-      <div class="footer-name">
+            <div class="footer-brand">
+                Hussaini Association of Calgary
+            </div>
 
-        HUSSAINI ASSOCIATION OF CALGARY
+            <div class="footer-copy">
+                © 2026 Hussaini Association of Calgary.
+                All rights reserved.
+            </div>
 
-        <small>
-          CALGARY · ALBERTA · CANADA
-        </small>
-
-      </div>
+        </div>
 
 
-      <div class="footer-links">
+        <div class="footer-links">
 
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#prayer">Prayer</a>
-        <a href="#programs">Programs</a>
-        <a href="#school">School</a>
-        <a href="#events">Events</a>
-        <a href="#contact">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#contact">Contact</a>
 
-      </div>
+        </div>
 
     </div>
-
-
-    <div class="footer-bottom">
-
-      <span>
-        © 2026 Hussaini Association of Calgary
-      </span>
-
-      <span>
-        Serving Calgary's Shia Muslim Community
-      </span>
-
-    </div>
-
-  </div>
 
 </footer>
 
 
-<!-- =====================================================
-     PRAYER MODAL
-===================================================== -->
-
-<div class="modal" id="prayerModal">
-
-  <div class="modal-box">
-
-    <div class="modal-head">
-
-      <div>
-
-        <div class="label">
-          Calgary · Rabi'al Thani 1448
-        </div>
-
-        <h2>
-          October 2026
-        </h2>
-
-      </div>
-
-      <button
-        class="close-modal"
-        onclick="closePrayerModal()">
-        ×
-      </button>
-
-    </div>
-
-
-    <table class="month-table">
-
-      <thead>
-
-        <tr>
-          <th>Day</th>
-          <th>Imsak</th>
-          <th>Fajr</th>
-          <th>Sunrise</th>
-          <th>Zuhrain</th>
-          <th>Sunset</th>
-          <th>Maghribain</th>
-        </tr>
-
-      </thead>
-
-      <tbody>
-
-        <tr><td>01</td><td>05:48</td><td>06:03</td><td>07:37</td><td>13:26</td><td>19:14</td><td>19:33</td></tr>
-        <tr><td>02</td><td>05:50</td><td>06:05</td><td>07:39</td><td>13:26</td><td>19:11</td><td>19:31</td></tr>
-        <tr><td>03</td><td>05:51</td><td>06:06</td><td>07:40</td><td>13:25</td><td>19:09</td><td>19:29</td></tr>
-        <tr><td>04</td><td>05:53</td><td>06:08</td><td>07:42</td><td>13:25</td><td>19:07</td><td>19:26</td></tr>
-        <tr><td>05</td><td>05:54</td><td>06:09</td><td>07:44</td><td>13:25</td><td>19:05</td><td>19:24</td></tr>
-        <tr><td>06</td><td>05:56</td><td>06:11</td><td>07:45</td><td>13:24</td><td>19:03</td><td>19:22</td></tr>
-        <tr><td>07</td><td>05:57</td><td>06:12</td><td>07:47</td><td>13:24</td><td>19:00</td><td>19:20</td></tr>
-        <tr><td>08</td><td>05:59</td><td>06:14</td><td>07:48</td><td>13:24</td><td>18:58</td><td>19:18</td></tr>
-        <tr><td>09</td><td>06:00</td><td>06:15</td><td>07:50</td><td>13:24</td><td>18:56</td><td>19:15</td></tr>
-        <tr><td>10</td><td>06:02</td><td>06:17</td><td>07:52</td><td>13:23</td><td>18:54</td><td>19:13</td></tr>
-        <tr><td>11</td><td>06:04</td><td>06:19</td><td>07:53</td><td>13:23</td><td>18:52</td><td>19:11</td></tr>
-        <tr><td>12</td><td>06:05</td><td>06:20</td><td>07:55</td><td>13:23</td><td>18:49</td><td>19:09</td></tr>
-        <tr><td>13</td><td>06:07</td><td>06:22</td><td>07:57</td><td>13:23</td><td>18:47</td><td>19:07</td></tr>
-        <tr><td>14</td><td>06:08</td><td>06:23</td><td>07:58</td><td>13:22</td><td>18:45</td><td>19:05</td></tr>
-        <tr><td>15</td><td>06:10</td><td>06:25</td><td>08:00</td><td>13:22</td><td>18:43</td><td>19:03</td></tr>
-        <tr><td>16</td><td>06:11</td><td>06:26</td><td>08:02</td><td>13:22</td><td>18:41</td><td>19:01</td></tr>
-        <tr><td>17</td><td>06:13</td><td>06:28</td><td>08:03</td><td>13:22</td><td>18:39</td><td>18:59</td></tr>
-        <tr><td>18</td><td>06:15</td><td>06:30</td><td>08:05</td><td>13:21</td><td>18:37</td><td>18:57</td></tr>
-        <tr><td>19</td><td>06:16</td><td>06:31</td><td>08:07</td><td>13:21</td><td>18:35</td><td>18:55</td></tr>
-        <tr><td>20</td><td>06:18</td><td>06:33</td><td>08:08</td><td>13:21</td><td>18:33</td><td>18:53</td></tr>
-        <tr><td>21</td><td>06:19</td><td>06:34</td><td>08:10</td><td>13:21</td><td>18:31</td><td>18:51</td></tr>
-        <tr><td>22</td><td>06:21</td><td>06:36</td><td>08:12</td><td>13:21</td><td>18:29</td><td>18:49</td></tr>
-        <tr><td>23</td><td>06:23</td><td>06:38</td><td>08:14</td><td>13:21</td><td>18:27</td><td>18:47</td></tr>
-        <tr><td>24</td><td>06:24</td><td>06:39</td><td>08:15</td><td>13:20</td><td>18:25</td><td>18:45</td></tr>
-        <tr><td>25</td><td>06:26</td><td>06:41</td><td>08:17</td><td>13:20</td><td>18:23</td><td>18:43</td></tr>
-        <tr><td>26</td><td>06:27</td><td>06:42</td><td>08:19</td><td>13:20</td><td>18:21</td><td>18:41</td></tr>
-        <tr><td>27</td><td>06:29</td><td>06:44</td><td>08:20</td><td>13:20</td><td>18:19</td><td>18:39</td></tr>
-        <tr><td>28</td><td>06:31</td><td>06:46</td><td>08:22</td><td>13:20</td><td>18:17</td><td>18:37</td></tr>
-        <tr><td>29</td><td>06:32</td><td>06:47</td><td>08:24</td><td>13:20</td><td>18:15</td><td>18:36</td></tr>
-        <tr><td>30</td><td>06:34</td><td>06:49</td><td>08:26</td><td>13:20</td><td>18:14</td><td>18:34</td></tr>
-        <tr><td>31</td><td>06:36</td><td>06:51</td><td>08:27</td><td>13:20</td><td>18:12</td><td>18:32</td></tr>
-
-      </tbody>
-
-    </table>
-
-  </div>
-
-</div>
-
 
 <script>
 
-/* =====================================================
-   LOADER
-===================================================== */
-
-window.addEventListener("load",function(){
-
-  setTimeout(function(){
-
-    document
-      .getElementById("loader")
-      .classList.add("hide");
-
-  },900);
-
-});
-
-
-/* =====================================================
+/* =========================================================
    MOBILE MENU
-===================================================== */
+========================================================= */
 
-function toggleMenu(){
+const menuButton = document.getElementById("navMenu");
+const navLinks = document.getElementById("navLinks");
 
-  const menu=document.getElementById("mobileNav");
+menuButton.addEventListener("click", () => {
 
-  if(menu.style.display==="block"){
-    menu.style.display="none";
-  }else{
-    menu.style.display="block";
-  }
-
-}
-
-function closeMenu(){
-
-  document.getElementById("mobileNav").style.display="none";
-
-}
-
-
-/* =====================================================
-   PRAYER MODAL
-===================================================== */
-
-function openPrayerModal(){
-
-  document
-    .getElementById("prayerModal")
-    .classList.add("show");
-
-  document.body.style.overflow="hidden";
-
-}
-
-function closePrayerModal(){
-
-  document
-    .getElementById("prayerModal")
-    .classList.remove("show");
-
-  document.body.style.overflow="";
-
-}
-
-
-/* click outside modal */
-
-document
-  .getElementById("prayerModal")
-  .addEventListener("click",function(e){
-
-    if(e.target===this){
-      closePrayerModal();
-    }
-
-  });
-
-
-/* =====================================================
-   ESCAPE MODAL
-===================================================== */
-
-document.addEventListener("keydown",function(e){
-
-  if(e.key==="Escape"){
-    closePrayerModal();
-  }
+    navLinks.classList.toggle("mobile-open");
 
 });
 
 
-/* =====================================================
-   CONTACT FORM
-===================================================== */
+document.querySelectorAll(".nav-links a").forEach(link => {
 
-function sendMessage(event){
+    link.addEventListener("click", () => {
 
-  event.preventDefault();
-
-  alert(
-    "Thank you for contacting Hussaini Association of Calgary."
-  );
-
-}
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-const observer=new IntersectionObserver(
-
-  function(entries){
-
-    entries.forEach(function(entry){
-
-      if(entry.isIntersecting){
-
-        entry.target.classList.add("visible");
-
-        observer.unobserve(entry.target);
-
-      }
+        navLinks.classList.remove("mobile-open");
 
     });
 
-  },
+});
 
-  {
-    threshold:.1
-  }
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.08
+    }
 
 );
 
 
-document
-  .querySelectorAll(".reveal")
-  .forEach(function(element){
+document.querySelectorAll(".reveal").forEach(element => {
 
     observer.observe(element);
 
-  });
+});
 
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+document.querySelectorAll(".footer-copy").forEach(element => {
+
+    element.innerHTML =
+        "© " + new Date().getFullYear() +
+        " Hussaini Association of Calgary. All rights reserved.";
+
+});
 
 </script>
 
